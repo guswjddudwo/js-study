@@ -1,0 +1,76 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 자바스크립트의 변수
+       * es5까지와 es6 이후
+       * es5까지는 var(상수가 없음) 변수 선언
+       * es6이후 let(변수), const (상수)
+       *
+       * var 변수
+       * 함수 레벨 scope {}
+       *
+       * let 변수 , const 상수
+       * 블록 레벨 scope {}s
+       * lexical scope
+       * 변수의 영역이 선언된 그 시점에 적용되는 것
+       * 전역변수: 블록을 벗어난 최상위 레벨에 선언된 변수
+       * 지역변수: 변수의 번위가 블록 내로 고정된 변수
+       */
+
+      //   var a = 1; // 전역 변수
+      //   {
+      //     var b = 2; // 지역 변수
+      //     console.log("a", a);
+      //   }
+
+      //   console.log("b", b);
+
+      let c = 1;
+      {
+        let d = 2;
+        console.log("c", c);
+      }
+      //   console.log("d", d);
+      //  let 변수는 bloc lavel scope 라서 하위 블록에 있는 변수를 참조할 수 없음
+      //  에러가 나면 스크립트 중단
+
+      const j = 5;
+      {
+        const g = 1;
+        console.log("j", j);
+      }
+      //   console.log("g", g);
+
+      /**
+       * var 변수는 호이스팅이 되는데 undefind로 초기화값이 정해짐
+       * 호이스팅: 코드 실행 전 변수를 최상단으로 끌어올려 초기화 하는 현상
+
+      // var는 중복 선언 가능함
+      //   var num = 10;
+      //   console.log(num);
+
+      //   var num = 20;
+      //   console.log(num);
+      /**
+       * 단점 - 대규모 프로젝트에서 문제 발생이 됨
+       * 두명의 개발자가 변수를 중복선언 할 경우 서로 모를 경우가 높음
+       */
+
+      /**
+        * let, const는 중복 선언 불가
+
+      let number = 1;
+      console.log(number);
+
+      let number = 1;
+      console.log(number);
+      */
+    </script>
+  </body>
+</html>
