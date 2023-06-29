@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *20203-06-29
+       * ! 느낌표 연산자
+       * 반환은 true, false를 반환
+       * 논리를 반대로 전환
+       * 리터럴을 강제로 불리언으로 변환
+       */
+
+      console.log("!abc", !"abc");
+      console.log("!", !"");
+
+      console.log("!!abc", !!"abc");
+      console.log("!!", !!"");
+
+      /**
+       * 논리 연산자
+       * a && b (end) : a true , b도 true
+       * a || b (or) : a와 b중에 하나가 true
+       *
+       * es6 : a ?? b 널 병합 연산자
+       * 논리 연산자는 비교하는 2개의 깂에서  true, fals 인지를 비교
+       */
+
+      console.log("0 && 10", !!(0 && 10));
+      console.log("10 && 10", !!(10 && 10));
+      console.log("'' && 10", !!("" && 10));
+      console.log("true && ", !!(true && null));
+
+      console.log("0 || '' ", !!(0 || ""));
+      console.log("ture || '' ", !!(true || ""));
+      console.log("50 || '' ", !!(50 || "str"));
+
+      //  널병합 연산자
+      // a ?? b
+      // a 가 null , undefined 인 경우에만 b를 반환
+      // a 가 null , undefined가 아니면 그냥 a를 반환
+
+      console.log("false ?? 50", !!(false ?? 50));
+      console.log("undefined ?? 50", !!(undefined ?? 50));
+      console.log("undefined ?? 0", !!(undefined ?? 0));
+      console.log("null ?? true", !!(undefined ?? true));
+      console.log("false ?? true", !!(false ?? true));
+    </script>
+  </body>
+</html>

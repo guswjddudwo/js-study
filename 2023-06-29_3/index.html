@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *20203-06-29
+       * 산술 연산자 + 산술 할당 연산자
+       * 증감 연산자
+       */
+
+      let a = 100;
+      console.log(++a); // a = a + 1 console.log(a)
+      console.log(a++); // console.log(a) => a = a + 1
+      console.log(a);
+
+      let b = 200;
+      console.log(b--);
+      console.log(b--);
+      console.log(b);
+
+      console.log("10+20", 10 + 20);
+      console.log("10-20", 10 - 20);
+      console.log("10/20", 10 / 20);
+      console.log("10*20", 10 * 20);
+
+      // 나머지
+      console.log(" 5 % 3", 5 % 3);
+      // 홀수짝수 혹은 배수 구분
+      // 앞에 있는 수를 뒤에 있는 수로 나눠서 더이상 나눌 수 없때 남아있는 나머지
+      console.log("홀수", 5 % 2);
+      console.log("짝수", 4 % 2);
+
+      console.log("36이 5의 배수인지 판단", 36 % 5 === 0);
+      console.log("40이 5의 배수인지 판단", 40 % 5 === 0);
+
+      // 더하기, 빼기 보다 곱하기 , 나누기가 우선 순위로 계산
+      console.log("2 + 3 * 10", 2 + 3 * 10);
+      console.log("10 / 2 + 30 *2", 10 / 2 + 30 * 2);
+    </script>
+  </body>
+</html>
