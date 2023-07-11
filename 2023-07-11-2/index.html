@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-07-11
+       * Number 객체 (생성자 함수)
+       * new Number() 암기
+       * 원시 타입을 생성하는 생성자 함수는 암묵적으로 new 키워들르 제외할 수 있음
+       * Number 객체는 들어오는 값을 강제 형변환
+       */
+
+      const num1 = "0.00001";
+      console.log(Number(num1) + 1);
+      console.log(num1 + 1);
+
+      // parseInt: 강제로 정수로 변환 (소수점 제거)
+      // praseFloat: Number 갱체로 대체 가능(소수점 표현) 잘 안씀
+      const num2 = 12.5555;
+      console.log(Number.parseInt(num2));
+
+      // 숫자 검증
+      // isFinite: 실수인지 여부 (소수까지 포함)
+      // isInteger: 정수인지 여부 (소수 미포함)
+      // isNaN: NaN 값인지 여부
+      console.log(Number.isInteger(0));
+      console.log(Number.isFinite(0));
+      console.log(Number.isFinite(3.45));
+      console.log(Number.isInteger(3.45));
+      console.log(Number.isNaN(11));
+      console.log(Number.isNaN(NaN));
+      console.log(Number.isNaN(calc(1, 4)));
+      console.log(Number.isNaN(calc(5, undefined)));
+
+      function calc(a, b) {
+        return a * b;
+      }
+
+      if (!Number.isNaN(calc(5, 10))) {
+        console.log("정상적으로 계산됨");
+      } else {
+        console.log("비정상으로 계산됨");
+      }
+    </script>
+  </body>
+</html>
