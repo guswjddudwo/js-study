@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-07-16
+       * 반복문
+       */
+
+      //  while
+      //  while (조건문) { 실행구문 }
+      // while 종료 조건은 조건문이 fals가 될 때
+      // while 종료 break
+      // while 건너뛰기 continue
+
+      let count = 0;
+      while (count < 10) {
+        if (count === 5) {
+          break;
+        }
+        // break 이후 구문은 실행하지 않음
+        console.log("while loop", count);
+        count++;
+      }
+
+      // for문
+      // for (초기화 변수; 조건문(종료 조건); 증감문;) {실행구문}
+      // while은 외부변수 , for문은 내부 변수 참조
+      for (let i = 0; i < 10; i++) {
+        if (i % 2 === 0) {
+          // i % 2 !== 0
+          continue;
+        }
+        if (i === 4) {
+          break;
+        }
+        console.log("for", i);
+      }
+
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      for (let i = 0; i < arr.length; i++) {
+        console.log("arr", arr[i]);
+      }
+
+      // 이중배열
+      const arr2 = [
+        [4, 5],
+        [6, 7, 8],
+        [9, 10, 11, 12],
+      ];
+
+      for (let i = 0; i < arr2.length; i++) {
+        // i === 0
+        // arr2[0] === [4,5]
+        // arr2[0].length === 2
+        for (let j = 0; j < arr2[i].length; j++) {
+          // i === 0 , j === 0, 1
+          // arr2[0] === [4,5]
+          // arr2[0][0]
+          // arr2[0][]
+          console.log("arr2", arr2[i][j]);
+        }
+      }
+    </script>
+  </body>
+</html>

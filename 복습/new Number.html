@@ -19,6 +19,12 @@
       const num1 = "0.0001";
       console.log(Number(num) + 1);
       console.log(num + 1);
+
+      if (Number.isNaN(calc(5, 10))) {
+        console.log("정상적으로 계산됨");
+      } else {
+        console.log("비정상적으로 계산됨");
+      }
     </script>
   </body>
 </html>
