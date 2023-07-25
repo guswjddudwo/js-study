@@ -13,6 +13,22 @@
       //  느낌표 연산자 : 논리를 반대로 전환
       console.log("!abc", !"abc");
       console.log("!", !"");
+
+      // 논리 연산자
+      // a && b (end) : a,b 둘다 true여야 true
+      // a || b : a와b 중에 하나만 true여도 true
+      // es6 : a ?? b null 병합 연산자
+      // 논리 연산자는 비교하는 2개의 값에서 true ,fals 인지를 비교
+
+      //  null 병합 연산자
+      // a ?? b
+      // a 가 null , undefined 인 경우에만 b를 반환
+      // a 가 null , undefined가 아니면 그냥 a를 반환
+
+      console.log("fals ?? 50", !!(false ?? 50));
+      console.log("undefind ?? 50", !!(undefined ?? 50));
+      console.log("undefind ?? 0", !!(undefined ?? 0));
+      console.log("fals ?? true", !!(false ?? true)); // boolean의 기본값은 false
     </script>
   </body>
 </html>
