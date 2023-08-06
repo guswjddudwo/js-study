@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        letter-spacing: -1px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-08-06
+       * 별그리기
+       */
+
+      //  document.write : 단순 텍스트나 html 테그를 body 영역에 작성할 수 있음
+
+      //   정사각형 별 그리기 5*5
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      document.write("<br/>-----------------------------<br/>");
+      //   직삼각형 별그리기
+      for (let i = 0; i < 5; i++) {
+        // i = 0
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      document.write("<br/>-----------------------------<br/>");
+      //   역순으로 직삼각형 그리기
+      for (let i = 0; i < 5; i++) {
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      document.write("<br/>-----------------------------<br/>");
+
+      //   반대로 직삼각형 별 그리기
+      // html 공백 특수문자: &nbdp;
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp;");
+        }
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+      document.write("<br/>-----------------------------<br/>");
+
+      //   반대로 역순으로 직삼각형 그리기
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < i; j++) {
+          document.write("&nbsp;");
+        }
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      document.write("<br/>-----------------------------<br/>");
+      //   정삼각형 그리기
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp;");
+        }
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        for (let j = 1; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //   과제
+      // 정삼각형 별 그리기 거꾸로 그리기 (상하)
+      // *********
+      //  *******
+      //   *****
+      //    ***
+      //     *
+      // 다이아몬드 형태 그리기 = 정삼각형 + 정삼각형 거꾸로
+      //     *
+      //    ***
+      //   *****
+      //  *******
+      // *********
+      //  *******
+      //   *****
+      //    ***
+      //     *
+    </script>
+  </body>
+</html>
