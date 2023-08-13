@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-08-13
+       * 실전 반복문 !!!
+       */
+
+      //  for in (안씀)
+      //  for of, interator
+
+      const obj = { a: 1, b: 2 };
+      // const arr = [ 1,2,3];
+
+      // for in (x)
+      // 순서가 보장되지 않는 객체의 키값을 조회할 수 있음
+      // 조회 성능상의 문제로 사용하진 않음
+      for (const key in obj) {
+        console.log("key", key); // 'a', 'b'
+        console.log("value", obj[key]);
+      }
+
+      const arr = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+      // for
+      // console.log("6", arr[0]);
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+
+      // for of
+      // 조회하고자 하는 배열의 값을 그대로 반환
+
+      let sum = 0;
+      for (const num of arr) {
+        console.log("num", num);
+        sum += num;
+      }
+      console.log("sum", sum);
+
+      // Object.keys() - 객체의 키를 배열로 반환
+      // Object.values() - 객체의 값을 배열로 반환
+      // Object.entries() - 객체를 [key, value] 구조로 배열로 반환
+
+      const obj2 = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+
+      console.log("keys", Object.keys(obj2));
+      console.log("keys", Object.values(obj2));
+      console.log("keys", Object.entries(obj2));
+
+      let sum2 = 0;
+      let sum3 = 0;
+      let sum4 = 0;
+
+      for (const key of Object.keys(obj2)) {
+        sum2 += obj2[key]; // 중요
+      }
+      console.log("sum2", sum2);
+
+      // sum3+=
+      for (const value of Object.values(obj2)) {
+        sum3 += value;
+      }
+      console.log("sum3", sum3);
+      const obj3 = {};
+
+      for (const [key, value] of Object.entries(obj2)) {
+        // console.log("entry", entry);
+        // console.log("entry key", entry[0]);
+        // console.log("entry", entry[1]);
+        obj3[key] = value + 5;
+      }
+
+      console.log("obj3", obj3);
+    </script>
+  </body>
+</html>

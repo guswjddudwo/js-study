@@ -98,19 +98,45 @@
 
       for (let i = 0; i < 5; i++) {
         for (let j = 0; j < i; j++) {
-          document.write("&nbsp");
+          document.write("&nbsp;");
         }
         for (let j = 5; j > i; j--) {
-          // space
           document.write("*");
         }
         for (let j = 4; j > i; j--) {
           document.write("*");
         }
-        document.write("<br>");
+        document.write("<br/>");
       }
 
       document.write("<br/>-----------------------------<br/>");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp;");
+        }
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        for (let j = 0; j < i; j++) {
+          document.write("*");
+        }
+
+        document.write("<br/>");
+      }
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j <= i; j++) {
+          document.write("&nbsp;");
+        }
+        for (let j = 4; j > i; j--) {
+          document.write("*");
+        }
+
+        for (let j = 3; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
 
       // 다이아몬드 형태 그리기 = 정삼각형 + 정삼각형 거꾸로
       //     *
@@ -122,33 +148,6 @@
       //   *****
       //    ***
       //     *
-
-      for (let i = 0; i < 5; i++) {
-        for (let j = 4; j > i; j--) {
-          document.write("&nbsp");
-        }
-        for (let j = 0; j <= i; j++) {
-          document.write("*");
-        }
-        for (let j = 1; j <= i; j++) {
-          document.write("*");
-        }
-
-        document.write("<br>");
-      }
-
-      for (let i = 0; i < 4; i++) {
-        for (let j = 0; j <= i; j++) {
-          document.write("&nbsp");
-        }
-        for (let j = 4; j > i; j--) {
-          document.write("*");
-        }
-        for (let j = 3; j > i; j--) {
-          document.write("*");
-        }
-        document.write("<br>");
-      }
     </script>
   </body>
 </html>
