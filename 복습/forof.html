@@ -30,7 +30,45 @@
         color: "red",
         year: "2010",
       };
-      console.log("keys", Object.entries(car));
+      console.log("car", car);
+      console.log("car", Object.keys(car));
+      console.log("car", Object.values(car));
+      console.log("car", Object.entries(car));
+
+      for (const entry of Object.entries(car)) {
+        console.log("entry", entry);
+        for (const item of entry) {
+          console.log(item);
+        }
+      }
+
+      const car2 = [
+        {
+          maker: "BMW",
+          color: "red",
+          year: "2010",
+        },
+        {
+          maker: "Benz",
+          color: "gray",
+          year: "2012",
+        },
+        {
+          maker: "Volvo",
+          color: "white",
+          year: "2015",
+        },
+      ];
+
+      for (const list of car2) {
+        console.log(list);
+        for (const list2 of Object.entries(list)) {
+          console.log(list2);
+          for (const list3 of list2) {
+            console.log(list3);
+          }
+        }
+      }
     </script>
   </body>
 </html>
