@@ -33,14 +33,10 @@
       const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       console.log(nums);
 
-      const nums2 = nums.map((nums3, index) => {
-        console.log("nums3", nums3);
-        console.log("index", index);
-        return {
-          multiply: nums3 * 2,
-        };
+      const nums2 = nums.map((item) => {
+        return item * 2;
       });
-      console.log(nums2);
+      console.log("nums2", nums2);
 
       const car = [
         {

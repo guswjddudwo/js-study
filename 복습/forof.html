@@ -72,7 +72,7 @@
 
       const name = [
         {
-          id: hyun,
+          id: hee,
           age: 12,
         },
         {
@@ -83,10 +83,9 @@
       console.log("name", name);
 
       const name2 = name.map((item) => {
-        return item.age;
-        console.log("item", item.id);
+        return item[0];
       });
-      console.log("name2", name);
+      console.log("name2", name2);
     </script>
   </body>
 </html>
