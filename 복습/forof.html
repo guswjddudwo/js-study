@@ -70,20 +70,19 @@
         }
       }
 
-      const name = [
-        {
-          id: hee,
-          age: 12,
-        },
-        {
-          id: jin,
-          age: 14,
-        },
-      ];
+      const name = {
+        id: "hee",
+        age: "12",
+      };
+      // {
+      //   id: "jin",
+      //   age: "14",
+      // };
+
       console.log("name", name);
 
       const name2 = name.map((item) => {
-        return item[0];
+        return item[age];
       });
       console.log("name2", name2);
     </script>
