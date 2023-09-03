@@ -1,0 +1,148 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-09-04
+       *
+       */
+      // Array.map
+      // 배열을 트겅한 콜백함수에서 반환하는 결과값으로 다시 배열화 시키기 위한 함수
+      const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      //   한줄 return 에서는 암묵적으로 return 예약어가 들어갔다고 해설하면 됨
+      console.log(
+        "multifly",
+        nums.map((num) => num * 2)
+      );
+
+      //   한줄 return에서 objet를 반환하는 경우에는 실행 블력 () 필요
+      console.log(
+        "objec",
+        nums.map((num) => ({ id: num }))
+      );
+
+      //   메서드 ㅌ체이닝 (mehtod chaning)
+      // 한수가 반환하는 결과에 프로토타입 메서드가 존재가흐는 경우 이어서 사용할 수 있는 방법
+
+      const names = [
+        "hey",
+        "judy",
+        "kay",
+        "jun",
+        "gee",
+        "kay",
+        "lose",
+        "roun",
+        "kiki",
+        "jin",
+      ];
+      console.log(
+        "names",
+        nums
+          .map((num) => ({ id: num }))
+          .map((obj, index) => ({ ...obj, idx: index, names: names[index] }))
+      );
+
+      //   filter
+      // 콜백 함수에서 결과값으로 반환되는 조건 boolean 값에 의해 데이터가 필터링됨
+      // 결과값은 배열
+      const even = nums.filter((num) => num % 2 === 0);
+      console.log("even", even);
+
+      // num의 홀수만
+      // nums에서 3보다 크고 9 보다 작거나 같은 수
+      // num에서 3의 배수만
+
+      const filter = nums.filter((num) => num % 2 !== 0);
+      console.log("filter", filter);
+
+      const nums2 = nums.filter((num) => num > 3 && num <= 9);
+      console.log("nums2", nums2);
+
+      const item = nums.filter((num) => num % 3 === 0);
+      console.log("filter2", item);
+
+      // find
+      // 콜백 함수에서 반환되는 boolean값에 딸 ㅏ첫번째로 매칭되는 값을 반환하거나 매칭되는 값이 없으면 undefind 반환
+      // 정해지지 않은 결과값 or undefind
+
+      const obj = nums
+        .map((num) => ({ id: num }))
+        .map((obj, index) => ({ ...obj, idx: index, names: names[index] }));
+
+      console.log(
+        "obj",
+        obj.find((person) => person.names === "kay")
+      );
+      //   name 'kay'를 가진 애를 전부 반환
+      const name2 = obj.filter((names) => names.names === "kay");
+      console.log("kay", name2);
+
+      //   some
+      // 콜백 함수에서 반환하는 boolean이 하나라도 true라면 true를 반환
+      // 전부 false 인 경우만 false를 반환
+      // 결과값은 boolean
+
+      const some = nums.some((num) => num === 3);
+      console.log("some", some);
+
+      // every
+      // 콜백함수에서 반환하는 boolean이 전부 true일때만 true를 반환
+      // 하나라도 false면 false를 반환
+      // 결과값은 boolean
+
+      const every = nums.every((num) => num < 10);
+      console.log("every", every);
+
+      //   flat, flatMap
+      //   중첩된 배열을 해제시키기 위한 함수
+      // 아무 배개변수도 없는 경우 undefind로는 1개의 중첩만 해제
+      // 매개변수 숙자만큽 중접 해게
+      // Infinity 사용하면 모든 중첩해제
+      const arr = [
+        [1, 2, 3],
+        [4, 5, [6, 7]],
+        [8, [9, 10, [11, 12]]],
+      ];
+
+      console.log("flat", arr);
+      console.log("flat", arr.flat());
+      console.log("flat", arr.flat(3));
+      console.log("flat", arr.flat(Infinity));
+
+      // flatMap
+      const arr1 = nums.map((num) => [num * 2]);
+      console.log("arr1", arr1);
+      const arr2 = nums.flatMap((num) => [num * 2]);
+      console.log("arr2", arr2);
+
+      const text = ["How was your day?", "I was the best"];
+      console.log(
+        "text",
+        text.map((txt) => txt.split(" "))
+      );
+
+      console.log(
+        "text",
+        text.flatMap((txt) => txt.split(" "))
+      );
+
+      const numArr = [-21, -5, 0, 12, 23, 1, 9, 5, 8, 10];
+      // 음수를 제거하고
+      // 20보다 큰 수는 제외하고
+      // 홀수와 짝수를 나눠서 각각의 배열로 반환 [[...홀수들],[...짝수들]]
+
+      //   const arrs = numArr.map((num) => numArr < 0);
+      //   console.log("arrs", arrs);
+
+      console.log(
+        "numArr1",
+        numArr.filter((nums) => 0 > numArr)
+      );
+    </script>
+  </body>
+</html>
