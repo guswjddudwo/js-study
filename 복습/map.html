@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // map && forEch 반복
+
+      const numArr = [-21, -5, 0, 12, 4, 7, 9, 1, 5, 8, 10]
+        .filter((num) => num >= 0)
+        .filter((num) => num <= 20);
+
+      const result = [];
+
+      for (const num of numArr) {
+        if (num % 2 !== 0) {
+          result[0] ? result[0].push(num) : (result[0] = [num]);
+        } else {
+          result[1] ? result[1].push(num) : (result[1] = [num]);
+        }
+      }
+
+      console.log("result", result);
+
+      const text = "The quick brown fox jumps over the lazy dog.";
+      const arr = text.split(" "); // 문자열을 배열로 분할
+      console.log("split", arr);
+
+      // 배열의  순서 접근에 용이함
+      console.log("at 0", arr.at(0));
+
+      // unshift()는 배열 앞에 값을 밀어넣을 때 사용한다 원본 배열을 변형시킴!!
+      // 배열의 전체 index를 재정렬 시켜서 연산 비용이 높음
+      console.log("unshfi`---------");
+      const arr1 = [...arr];
+      arr.unshift(1, 2, 3);
+      console.log("nushift arr", arr1);
+
+      //Array.push()
+      // 원본의 배열을 변형시킴 (사이₩₩`₩`드 이펙트)
+      //배열 뒤에 값을 밀어넣을때 사용
+      const arr3 = [...arr];
+      arr3.push("wayup");
+      console.log("arr push", arr3);
+
+      //Array.pop()
+      //배열의 마지막!! 요소를 제거하며 원본 변형을 함
+      const arr2 = [...arr];
+      arr2.pop(232323);
+      console.log("arr pop", arr2);
+
+      // Array.concat()
+      // 배열뒤에 값을 이어붙임 !! 원본을 손상하지 않음
+      const arr4 = [...arr];
+      console.log(
+        "arr.concat",
+        arr.concat("복습연습!!", 111),
+        arr.concat([1213])
+      );
+
+      const arr6 = [...arr];
+      console.log("Origin arr", arr);
+
+      // commit test
+    </script>
+  </body>
+</html>
