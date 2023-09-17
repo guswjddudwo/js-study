@@ -6,7 +6,102 @@
   </head>
   <body>
     <script>
-      //
+      // Arrary Prototype Method
+      const text = "The quick brown fox jumps over the lazy dog.";
+      const arr = text.split(" ");
+      console.log("arr", arr);
+
+      // incuudes
+      // 배열 내에 값이 존재하는지 여부를 판단
+
+      console.log("arr in brown", arr.includes("brown"));
+      console.log("text in The q", arr.includes("The q"));
+      console.log("arr in foxs", arr.includes("foxise"));
+
+      const matches = ["quick", "fox", "jumps", "dog"];
+      // 하나라도 매칭이 되는지
+      // some : 배열을 순회하면서 조건이 하나라도 true면 true
+      const some = matches.some((text) => arr.includes(text));
+      console.log("some", some);
+      // 전부 매칭이 되는지
+
+      // every: 배열을 순회하면서 조건이 전부 true면 true
+      const every = matches.every((text) => arr.includes(text));
+      console.log("every", every);
+
+      const data = "name:chris|age:18|constry:seoul";
+      const dataArr = data.split("|");
+      console.log("dataArr", dataArr);
+      const findName = dataArr.find((item) => item.includes("name"));
+      console.log("findName", findName);
+      const name = findName.split(":")[1];
+      console.log("name", name);
+
+      // indexOf
+      // 배열의 특징 겂이 있는 위치를 찾을 수 있음
+      console.log(arr.indexOf("quick"));
+
+      // join
+      // 배열을 합쳐서 문자열로 반환
+      // 특정값을 기준으로 문자열을 합칠수도 있음
+      // 기본값은 콤마를 기준으로 합쳐줌
+      console.log("arr", arr);
+      console.log("arrjoin", arr.join(" "));
+
+      // "The quick brown fox jumps over the lazy dog.";
+      // quick 글자는 전부 제거
+      // brown -> red
+      // fox -> tiger
+      // dog. -> cat
+      // "The red tiger jumps over the lazy cat.";
+
+      const cloneArr = text.split(" ");
+      const excludeQuickText = cloneArr.filter((text) => text !== "quick");
+      console.log("excludeQuickText", excludeQuickText);
+
+      const brownIndex = excludeQuickText.indexOf("brown");
+      console.log("brownIndex", brownIndex);
+      excludeQuickText[brownIndex] = "red";
+      console.log("excludeQuickText", excludeQuickText);
+
+      const foxIndex = excludeQuickText.indexOf("fox");
+      console.log("foxIndex", foxIndex);
+      excludeQuickText[foxIndex] = "tiger";
+      console.log("excludeQuickText", excludeQuickText);
+
+      const dogindex = excludeQuickText.indexOf("dog.");
+      console.log("excludeQuickText", excludeQuickText);
+
+      excludeQuickText[dogindex] = "cat";
+      console.log("excludeQuickText", excludeQuickText);
+
+      console.log("join", excludeQuickText.join(" "));
+
+      const changesText = ["brown:red", "fox:tiger", "dog:cat"];
+      changesText.forEach((changes) => {
+        const [asIs, toBe] = changes.split(":");
+        console.log("asIs", asIs);
+        console.log("toBe", toBe);
+        excludeQuickText[excludeQuickText.indexOf(asIs)] = toBe;
+      });
+
+      const result = excludeQuickText.join(" ");
+      console.log("result", result);
+
+      // reverse
+      //배열의 위치들을 반대로 바꿈
+
+      console.log("arr reverse", arr.reverse());
+
+      // srot
+      // 배열의 정열을  특정 조건을 기준으로 바꿈
+      // 배열의 원본을 바꿈
+
+      const numArr = [8, 3, 1, 3, 10, 35, -10, -3];
+      const srot = [...numArr].sort();
+      console.log("srot", srot);
+      const desc = [...numArr].sort((a, b) => b - a);
+      console.log("desc", desc);
     </script>
   </body>
 </html>
