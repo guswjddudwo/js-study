@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Array prototype Mathod
+      const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+      //slice
+      // 원본배열을 변형하지 않고 새로운 배열을 반환한다
+      // begin index 부터  end index 전까지 배열을 자름
+      // 매개변수의 음수를 허용
+      // slice(begin,end)
+
+      // end index는 필수 요소가 아니다
+      // strt index만 입력된다 strt index부터 끝까지 자른다
+      console.log(animals.slice(3));
+      console.log(animals.slice(-3));
+
+      console.log(animals.slice(1, 4));
+      console.log(animals.slice(-3, 4));
+
+      console.log("원본 animals", animals);
+
+      // 배열 얕은복사
+      // slice에 매개변수가 없는 경우 처음부터 끝까지 잘라서 새로운 배열을 반환한다
+      const c_animals = animals.slice();
+      // === [...animals]
+      animals[0] = "cat";
+
+      console.log("원본 animals", animals);
+      console.log("복사 animals", c_animals);
+
+      // splice
+      // 원본이 변경된다
+      // strt index부터 length만큼 자른다
+      // splice(index,length, ...replace)
+      // 자른 데이터를 반환한다
+
+      console.log([...animals].splice(1, 2));
+      console.log("원본 animals", animals);
+
+      // 첫번째 매개변수만 입력하면 index 0부터 입력한 수만큼 자른다
+      console.log([...animals].splice(2));
+      console.log([...animals].splice(-3, 2));
+
+      const c_animals2 = [...animals];
+      c_animals2.splice(1, 2, "dog", "cat");
+      console.log("c_animals2", c_animals2);
+
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      //처리결과 [ 1, 2, 3, 24, 32, 19, 4, 5, 6, 7, 8, -10, -20, 10]
+      // 처리결과 모든 수에 곱하기 2를 해서 반환
+
+      const c_arr = [...arr];
+      c_arr.splice(3, 1, 24, 32, 19);
+      c_arr.splice(-2, 1, -10, -20);
+      console.log("원본 arr", arr);
+      console.log("c_arr", c_arr);
+      console.log(
+        "multifly",
+        c_arr.map((c_arr) => c_arr * 2)
+      );
+
+      // slice를 활용한 배열값 바꾸기
+      //처리결과 [ 1, 2, 3, 24, 32, 19, 4, 5, 6, 7, 8, -10, -20, 10]
+      console.log(
+        [
+          arr.slice(0, 3),
+          24,
+          32,
+          19,
+          arr.slice(4, -2),
+          -10,
+          -20,
+          arr.slice(-1),
+        ].flat()
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Array prototype Mathod
+      // reduce
+      // reduce(누적값,현재값,인덱스) => {}, 초기값)
+      // 콜백함수의 return이 누적값에 적용됨
+      // 누적없은 첫번째 루프에서는 초기값이 반환됨
+
+      const number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      const result = number.reduce((acc, cur) => {
+        // console.log("acc", acc);
+        // console.log("cur", cur);
+        return acc + cur;
+      }, 0);
+
+      console.log("result", result);
+
+      //result : [4,8,12,16] , reduc,map,filter 써서 구현하기
+
+      // const arr = number.reduce((acc, cur) => {
+      //   console.log("arr acc", acc);
+      //   acc.push;
+      // }, []);
+
+      // map , filter
+      // const arr2 =
+      //result : [4,8,12,16]
+      const arr2 = number.map((num) => num * 2);
+      // arr2.filter();
+      console.log("arr2", arr2);
+    </script>
+  </body>
+</html>
