@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      Person.prototype.getDesc = function () {
+        return `${this.name}의 나이는 ${this.age}입니다.`;
+      };
+
+      Person.prototype.getAge = function () {
+        return this.age;
+      };
+
+      const obj = new Object();
+      const chris = new Person("chris", 27);
+      const judy = new Person("judy", 22);
+      const jamy = new Person("jamy", 30);
+
+      console.log("obj", obj);
+      console.log("chris", chris.getDesc());
+      console.log("judy", judy.getDesc());
+      console.log("jamy", jamy.getDesc());
+
+      function Students(students) {
+        this.students = students;
+      }
+
+      Students.prototype.getAllDesc = function () {
+        return this.students.map((student) => student.getDesc()).join("\n");
+      };
+
+      Students.prototype.getAllAge = function () {
+        return this.students.reduce((acc, student) => {
+          return acc + student.age;
+        }, 0);
+      };
+
+      const students = new Students([chris, judy, jamy]);
+      console.log("students", students.getAllDesc());
+      console.log(students);
+      console.log("students sum age", students.getAllAge());
+
+      const students2 = new Students([
+        new Person("kevin", 31),
+        new Person("sienna", 21),
+        new Person("noah", 33),
+      ]);
+
+      console.log("students2 dese", students2.getAllDesc());
+      console.log("students2 age", students2.getAllAge());
+
+      // 과제
+      // 차량 정보를 가진 생성자 함수
+      // 차량의 시장 정보를 가진 중고차시장 생성자
+      // 차량 정보는 차명, 제조사, 중고단가, 검사일
+
+      // 충고차 시장은
+      // 차량 정보를 넘겨받아서
+      // 모든 차의 총 중도단가의 합
+      // 검사일이 오늘 기분으로 한달(30일)  남은 차량
+      // 제조사중에 bmw만 걸러서 표시
+    </script>
+  </body>
+</html>

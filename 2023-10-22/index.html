@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      //생성자 함수 or Class
+      // 객체를 생성할 수 있고 prototype 상속을 통해서 기능을 상속시킬 수 있음
+      // new 라는 키워드를 활용해서 실행
+
+      const arrary = new Array();
+      const str = new String();
+
+      console.log("arrary", arrary);
+      console.log("str", str);
+
+      //객체 선언
+      const person = {
+        a: "chris",
+        b: 27,
+      };
+
+      const chris = person;
+      const judy = person;
+      const jin = person;
+
+      // 생성자 함수 선언
+      // 암묵적으로 UpperCamaleCase를 사용한다
+
+      function Person() {
+        // this === {}
+        // return this
+        console.log("person this", this);
+      }
+
+      const Person2 = () => {
+        console.log("Person2 this", this);
+      };
+
+      const chris2 = Person();
+      const judy2 = new Person(); // 암묵적으로 object(this)를 반환한다.
+
+      console.log("chris2", chris2);
+      console.log("judy2", judy2);
+
+      console.log(this);
+
+      const chris3 = Person2();
+      const judy3 = new Person2();
+
+      console.log("chris3", chris3);
+      console.log("judy3", judy3);
+    </script>
+  </body>
+</html>
