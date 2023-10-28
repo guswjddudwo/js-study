@@ -67,8 +67,19 @@
       // 중고차 시장은
       // 차량 정보를 넘겨받아서
       // 모든 차의 총 중도단가의 합
-      // 검사일이 오늘 기분으로 한달(30일)  남은 차량
+      // 검사일이 오늘 기준으로 한달(30일) 남은 차량
       // 제조사중에 bmw만 걸러서 표시
+
+      function Car(car) {
+        this.car = car;
+      }
+
+      // const bmw = new Car('bmw','i5',9000,09/20)
+      // const  = new Car('bmw','i5',9000,09/20)
+
+      Car.prototype.getAllDesc = function () {
+        return this.students.map((student) => student.getDesc()).join("\n");
+      };
     </script>
   </body>
 </html>
