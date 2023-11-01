@@ -97,13 +97,22 @@
       // 학생 관리
       // 학생정보를 가진 객체 Student
       // 학생정보는 이름, 성별,나이, 소속반, 성적(A,B,C,D,F), 입학일
-      // 학생 정보를 모아서 관리하기 휘한 학급 정보를 가진 객체 Class
+      // 학생 정보를 모아서 관리하기 위한 학급 정보를 가진 객체 Class
 
       // 성적이 C 이상인 학생들만 걸러내는 함수
       // 나이가 25세 이하인 학생들만 걸러내는 함수
       // 학생들의 총 나이합
       // 입학일이 최근 3개월 내인 학생들만 걸러내는 함수
       // 성별이 여자인 학생들만 걸러내는 함수
+
+      function Student(name, gender, age, className, grade, admission) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.className = className;
+        this.grade = grade;
+        this.admission = admission;
+      }
     </script>
   </body>
 </html>
