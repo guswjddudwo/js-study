@@ -114,19 +114,29 @@
         this.admission = admission;
       }
 
-      function Class(classNumber) {
-        this.classNumber = classNumber;
-        this.Student = [];
-      }
+      const jimi = new Student("jimi", "m", 24, 1, "D", "2023-03-01");
+      const amy = new Student("amy", "w", 28, 2, "A", "2023-04-15");
+      const jack = new Student("jack", "m", 20, 1, "C", "2023-07-25");
+      const joon = new Student("joon", "m", 25, 2, "B", "2023-07-11");
+      const alice = new Student("alice", "w", 29, 2, "F", "2023-08-05");
+      const jenny = new Student("jenny", "w", 31, 1, "E", "2023-11-11");
+      const chris = new Student("chris", "m", 20, 1, "A", "2023-06-01");
+      const kimi = new Student("kimi", "w", 21, 2, "F", "2023-06-28");
 
-      const jimi = new Student("jimi", "m", 24, 1, "d", "2022-03-01");
-      const amy = new Student("amy", "y", 24, 1, "d", "2022-03-01");
-      const jack = new Student("jack", "m", 24, 1, "d", "2022-03-01");
-      const joon = new Student("joon", "m", 24, 1, "d", "2022-03-01");
-      const alice = new Student("alice", "m", 24, 1, "d", "2022-03-01");
-      const jenny = new Student("jenny", "m", 24, 1, "d", "2022-03-01");
-      const chris = new Student("chris", "m", 24, 1, "d", "2022-03-01");
-      const kimi = new Student("kimi", "m", 24, 1, "d", "2022-03-01");
+      const class1Students = [jimi, jack, jenny, chris];
+      const class2Students = [amy, joon, alice, kimi];
+
+      const allStudents = class1Students.concat(class2Students);
+
+      const filteredStudents = allStudents.filter(
+        (student) => student.grade <= "C"
+      );
+      const filteredStudentsAge = allStudents.filter(
+        (student) => student.age >= 25
+      );
+
+      console.log("grade", filteredStudents);
+      console.log("age", filteredStudentsAge);
     </script>
   </body>
 </html>
