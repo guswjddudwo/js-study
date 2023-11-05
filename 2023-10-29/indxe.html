@@ -114,6 +114,21 @@
         this.admission = admission;
       }
 
+      function Class(classNumber, ...students) {
+        this.classNumber = classNumber;
+        this.students = students;
+      }
+
+      Class.prototype.studentsGrade = function () {
+        return this.students.filter((student) => student.grade <= "C");
+      };
+
+      Class.prototype.sumStudentsAge = function () {
+        return this.students.reduce((acc, student) => {
+          return acc + student.age;
+        }, 0);
+      };
+
       const jimi = new Student("jimi", "m", 24, 1, "D", "2023-03-01");
       const amy = new Student("amy", "w", 28, 2, "A", "2023-04-15");
       const jack = new Student("jack", "m", 20, 1, "C", "2023-07-25");
@@ -123,20 +138,24 @@
       const chris = new Student("chris", "m", 20, 1, "A", "2023-06-01");
       const kimi = new Student("kimi", "w", 21, 2, "F", "2023-06-28");
 
-      const class1Students = [jimi, jack, jenny, chris];
-      const class2Students = [amy, joon, alice, kimi];
+      const class1 = new Class(1, jimi, jack, jenny, chris);
+      const class2 = new Class(2, amy, joon, alice, kimi);
 
-      const allStudents = class1Students.concat(class2Students);
+      const class1Grade = class1.studentsGrade("C");
+      const class2Grade = class2.studentsGrade("C");
 
-      const filteredStudents = allStudents.filter(
-        (student) => student.grade <= "C"
-      );
-      const filteredStudentsAge = allStudents.filter(
-        (student) => student.age >= 25
-      );
+      Class.prototype.studentsAge = function (minAge) {
+        return this.students.filter((student) => student.age <= minAge);
+      };
 
-      console.log("grade", filteredStudents);
-      console.log("age", filteredStudentsAge);
+      const class1Age = class1.studentsAge(25);
+      const class2Age = class2.studentsAge(25);
+
+      console.log("Class1", class1Grade);
+      console.log("Class2", class2Grade);
+
+      console.log("class1Age", class1Age);
+      console.log("class2Age", class2Age);
     </script>
   </body>
 </html>

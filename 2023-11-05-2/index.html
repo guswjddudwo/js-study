@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div name="box3"></div>
+    <div name="box3"></div>
+    <span>
+      <span>test1</span>
+      <span>test2</span>
+    </span>
+
+    <input type="checkbox" checked />
+    <input type="checkbox" checked />
+    <input type="checkbox" checked />
+
+    <script>
+      "use strict";
+
+      //selector
+      // DOM 에 접근할 수 있는 방법
+
+      //id로 접근
+      const box1 = document.getElementById("box");
+      console.log("box", box);
+
+      // class로 접근
+      const box2 = document.getElementsByClassName("box2");
+      console.log("box2", box2);
+
+      // name으로 접근
+      const box3 = document.getElementsByName("box3");
+      console.log("box3", box3);
+
+      // tag name로 접근
+      const span = document.getElementsByTagName("span");
+      console.log("span", span);
+
+      // querySelector, querySelectorAll
+      //es6 부터 생긴 dom selector
+
+      //id로 접근
+      const selector = document.querySelector("#box");
+      console.log("boxSelector - id", selector);
+
+      // class로 접근
+      const selector2 = document.querySelectorAll(".box2");
+      console.log("boxSelector2 - class", selector2);
+
+      //attribute로 접근
+      const selector3 = document.querySelectorAll("[name=box3]");
+      console.log("boxSelector3 - name attribute", selector3);
+
+      const checkBoxAll = document.querySelectorAll("[type=checkbox]");
+      console.log(checkBoxAll);
+      console.log(
+        "is check all",
+        [...checkBoxAll].every((checkBox) => {
+          return checkBox.checked;
+        })
+      );
+
+      const selector4 = document.querySelectorAll("span");
+      console.log("span selelctor4", selector4);
+    </script>
+  </body>
+</html>
