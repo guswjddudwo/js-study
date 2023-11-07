@@ -60,9 +60,7 @@
       console.log(checkBoxAll);
       console.log(
         "is check all",
-        [...checkBoxAll].every((checkBox) => {
-          return checkBox.checked;
-        })
+        [...checkBoxAll].every((checkBox) => checkBox.checked)
       );
 
       const selector4 = document.querySelectorAll("span");
