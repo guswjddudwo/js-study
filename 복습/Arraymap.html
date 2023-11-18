@@ -28,6 +28,24 @@
         return num * num;
       });
       console.log(nums);
+
+      // some
+      // 콜백 함수에서 반환하는 boolean이 하나라도 true라면 true를 반환
+      // 전부 false 인 경우만 false를 반환
+      // 결과값은 boolean
+
+      const word = ["a", "b", "c", "hyun", "jung"];
+      const some = word.some((word) => word.length === 4);
+      console.log("some", some);
+
+      // every
+      // 콜백함수에서 반환하는 boolean이 전부 true일때만 true를 반환
+      // 하나라도 false면 false를 반환
+      // 결과값은 boolean
+
+      const num = [1, 2];
+      const every = word.every((num) => num > 3);
+      console.log("every", every);
     </script>
   </body>
 </html>
