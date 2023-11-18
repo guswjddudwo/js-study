@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      // Array.map
+      // 기존 배열의 각 요소에 호출을 호출하고 그 결과를 새로운 배열로 반환 하는 함수
+      const people = ["kay", "chris", "luna", "kavin"];
+      console.log("peole", people);
+
+      const people2 = people.map((item, index) => {
+        console.log("item", item);
+        console.log("index", index);
+        return {
+          name: item,
+          order: index,
+        };
+      });
+
+      console.log("people2", people2);
+    </script>
+  </body>
+</html>
