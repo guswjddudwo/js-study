@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li>1</li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <ul id="list2">
+      <li>2</li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script>
+      "use strict";
+
+      //querySelector, querySelectorAll
+      // 자식 요소 선택
+
+      const items = document.querySelectorAll("#list > li");
+      const firstItems = document.querySelectorAll("ul > li:first-child");
+      console.log("itrms", items);
+      console.log("firstItem", firstItems);
+    </script>
+  </body>
+</html>

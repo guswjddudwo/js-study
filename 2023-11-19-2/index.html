@@ -1,0 +1,152 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selected {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div class="selected">4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+    </div>
+    <ul id="list">
+      <li>home</li>
+      <li>market</li>
+      <li>customer</li>
+      <li class="selected">product</li>
+      <li>news</li>
+    </ul>
+
+    <div id="depth-selector">
+      <div class="group">
+        <div>group-selected</div>
+        <div>
+          <div></div>
+          <div class="selected">item select</div>
+          <div></div>
+        </div>
+      </div>
+      <div class="group">
+        <div>group</div>
+        <div>
+          <div></div>
+          <div class="next-selected">next item</div>
+          <div>next item sibling</div>
+          <div>next item Sibling</div>
+          <div>next item Sibling</div>
+
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      "use strict";
+
+      // 근접한 요소 선택하기
+
+      const boxSelected = document.querySelector("#box > .selected");
+      console.log("boxSelected", boxSelected);
+      // 부모요소에 접근하기
+      console.log("boxSelectedParent", boxSelected.parentElement);
+
+      // 이전 요소 접근하기
+      // domElement 요소만 이전 요소 선택
+      console.log("boxSelected prev", boxSelected.previousElementSibling);
+
+      // 텍스트 요소까지 포함해서 이전 요소 선택
+      console.log("boxSelected prev", boxSelected.previousSibling);
+
+      // 다음 요소 접근하기
+      // domElement 요소만 다음 요소 선택
+      console.log("boxSelected next", boxSelected.nextElementSibling);
+      console.log(
+        "boxSelected next",
+        boxSelected.nextElementSibling.textContent
+      );
+
+      // 텍스트 요소까지 포함해서 다음요소 선택
+      console.log("boxSelected next", boxSelected.nextSibling);
+
+      // 이후 요소 선택하기
+      console.log(
+        "boxSelected next next",
+        boxSelected.nextElementSibling.nextElementSibling.nextElementSibling
+      );
+
+      function nextSibling(el) {
+        const sibling = [];
+        let next = el.nextElementSibling; // null
+
+        while (next) {
+          sibling.push(next.textContent);
+          next = next.nextElementSibling;
+        }
+
+        return sibling;
+      }
+
+      console.log("boxSelected Sibling all", nextSibling(boxSelected));
+
+      // #list .Selected의 이전요소 전부 선택하기
+
+      const listSelected = document.querySelector("#list > .selected");
+      console.log("listSelected prev", listSelected.previousElementSibling);
+
+      console.log(
+        "boxSelected ",
+        listSelected.previousElementSibling.previousElementSibling
+          .previousElementSibling
+      );
+      function prevSibling(el) {
+        const list = [];
+        let prev = el.previousElementSibling; // null
+
+        while (prev) {
+          list.push(prev);
+          prev = prev.previousElementSibling;
+        }
+
+        return list;
+      }
+
+      console.log("listSelected Sibling all", prevSibling(listSelected));
+      // closest
+      // 상위 요소로만 접근 (같은 위계 x)
+      // Selector의 조건에 맞는 가장 근접한 상위 요소를 반환
+
+      const depthSelectorSelected = document.querySelector(
+        "#depth-selector .selected"
+      );
+
+      console.log("depthSelectorSelected", depthSelectorSelected);
+      console.log(
+        "depthSelectorSelected parent group",
+        depthSelectorSelected.parentElement.parentElement
+      );
+
+      console.log(
+        "depthSelectorSelected parent group",
+        depthSelectorSelected.closest(".group")
+      );
+
+      /**
+       * 11-19 과제
+       * #depth-selector 에서 .selected 부터 시작해서
+       * .next-selected 요소를 접근
+       * .next-selected 다음(next) 근접 요소를 전부 반환하는 함수를 만들어서
+       * console.log
+       */
+    </script>
+  </body>
+</html>
