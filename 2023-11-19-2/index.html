@@ -159,20 +159,18 @@
       );
       console.log("nextSelected", nextSelected);
 
-      console.log(
-        "next-selected all",
-        nextSelected.nextElementSibling.nextElementSibling.nextElementSibling
-      );
+      console.log("next-selected all", nextSelected.nextElementSibling);
 
       function nextSelectedAll(el) {
         const nextAll = [];
-        let lists = el.nextElementSibling;
+        let nextElement = el.nextElementSibling;
 
-        while (all) {
-          nextAll.push(next.textContent);
-          lists = all.nextElementSibling;
+        while (nextElement) {
+          const textContent = nextElement.textContent; // trim()을 사용하여 앞뒤 공백 제거
+          nextAll.push(textContent);
+          nextElement = nextElement.nextElementSibling;
         }
-        return next;
+        return nextAll;
       }
 
       console.log("listAll", nextSelectedAll(nextSelected));
