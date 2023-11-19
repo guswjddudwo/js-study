@@ -158,6 +158,24 @@
         "#depth-selector .next-selected"
       );
       console.log("nextSelected", nextSelected);
+
+      console.log(
+        "next-selected all",
+        nextSelected.nextElementSibling.nextElementSibling.nextElementSibling
+      );
+
+      function nextSelectedAll(el) {
+        const nextAll = [];
+        let lists = el.nextElementSibling;
+
+        while (all) {
+          nextAll.push(next.textContent);
+          lists = all.nextElementSibling;
+        }
+        return next;
+      }
+
+      console.log("listAll", nextSelectedAll(nextSelected));
     </script>
   </body>
 </html>
