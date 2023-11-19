@@ -147,6 +147,17 @@
        * .next-selected 다음(next) 근접 요소를 전부 반환하는 함수를 만들어서
        * console.log
        */
+
+      const selected = document.querySelector(".group .selected");
+      console.log("depth selected", selected);
+
+      const depthParent = document.querySelector("#depth-selector > .group");
+      console.log("depthparent", depthParent.parentElement);
+
+      const nextSelected = document.querySelector(
+        "#depth-selector .next-selected"
+      );
+      console.log("nextSelected", nextSelected);
     </script>
   </body>
 </html>
