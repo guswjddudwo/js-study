@@ -161,19 +161,19 @@
 
       console.log("next-selected all", nextSelected.nextElementSibling);
 
-      // function nextSelectedAll(el) {
-      //   const nextAll = [];
-      //   let nextElement = el.nextElementSibling;
+      function nexstSelectedAll(el) {
+        const listAll = [];
+        let nexts = el.nextElementSibling;
 
-      //   while (nextElement) {
-      //     const textContent = nextElement.textContent;
-      //     nextAll.push(textContent);
-      //     nextElement = nextElement.nextElementSibling;
-      //   }
-      //   return nextAll;
-      // }
+        while (nexts) {
+          const text = nexts.textContent;
+          listAll.push(text);
+          nexts = nexts.nextElementSibling;
+        }
+        return listAll;
+      }
 
-      // console.log("listAll", nextSelectedAll(nextSelected));
+      console.log("listAll", nexstSelectedAll(nextSelected));
     </script>
   </body>
 </html>
