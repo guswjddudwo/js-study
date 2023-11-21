@@ -161,18 +161,19 @@
 
       console.log("next-selected all", nextSelected.nextElementSibling);
 
-      function nextSelectedAll(el) {
-        const nextAll = [];
-        let nextElement = el.nextElementSibling;
+      // function nextSelectedAll(el) {
+      //   const nextAll = [];
+      //   let nextElement = el.nextElementSibling;
 
-        while (nextElement) {
-          const textContent = nextElement.textContent; // trim()을 사용하여 앞뒤 공백 제거
-          nextAll.push(textContent);
-          nextElement = nextElement.nextElementSibling;
-        }
-      }
+      //   while (nextElement) {
+      //     const textContent = nextElement.textContent;
+      //     nextAll.push(textContent);
+      //     nextElement = nextElement.nextElementSibling;
+      //   }
+      //   return nextAll;
+      // }
 
-      console.log("listAll", nextSelectedAll(nextSelected));
+      // console.log("listAll", nextSelectedAll(nextSelected));
     </script>
   </body>
 </html>
