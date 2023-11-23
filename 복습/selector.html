@@ -44,6 +44,33 @@
     </div>
     <script>
       "use strict";
+
+      const boxSelected = document.querySelector(".box");
+      console.log("boxSelected", boxSelected);
+
+      // .box의 근접요소 선택하기
+      const group = document.querySelector(".box > div");
+      console.log("group1", group);
+
+      // group의 부모요소 선택하기
+      console.log("groupParent", group.parentElement);
+
+      // 다음요소 선택하기
+      console.log("next", group.nextElementSibling);
+
+      function groupSelected(el) {
+        const groups = [];
+        let list = el.nextElementSibling;
+
+        while (allgroup) {
+          const text = allgroup.textContent;
+          allgroup.push(text);
+          allgroup = allgroup.nextElementSibling;
+        }
+        return groups;
+      }
+
+      console.log("true?", groupSelected(group));
     </script>
   </body>
 </html>
