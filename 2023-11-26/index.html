@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selected {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="depth-selector">
+      <div class="group">
+        <div>group-selected</div>
+        <div>
+          <div></div>
+          <div class="selected">item select</div>
+          <div></div>
+        </div>
+      </div>
+      <div class="group">
+        <div>group</div>
+        <div>
+          <div></div>
+          <div class="next-selected">next item</div>
+          <div>next item sibling</div>
+          <div>next item Sibling</div>
+          <div>next item Sibling</div>
+
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      "use strict";
+
+      /**
+       * 11-19 과제
+       * #depth-selector 에서 .selected 부터 시작해서
+       * .next-selected 요소를 접근
+       * .next-selected 다음(next) 근접 요소를 전부 반환하는 함수를 만들어서
+       * console.log
+       */
+
+      const selected = document.querySelector(".selected");
+      const parent = selected.parentElement.parentElement;
+      const group1 = parent.nextElementSibling;
+      console.log("group1", group1);
+      const group2 = group1.querySelector(".next-selected");
+      console.log("group2", group2);
+    </script>
+  </body>
+</html>
