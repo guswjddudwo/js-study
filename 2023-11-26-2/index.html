@@ -86,6 +86,12 @@
         target.parentElement.style.backgroundColor = "#ccc";
         console.log("target parent li sibling", target.parentElement);
       });
+      const siblings = parentLi.parentElement.querySelectorAll("li");
+      siblings.forEach((sibling) => {
+        if (sibling !== parentLi) {
+          sibling.style.backgroundColor = "#fff";
+        }
+      });
 
       // 다음과제
       // 선택한 버튼 요소 부모 li 주변의 li 색상을 #fff로 변경
