@@ -73,7 +73,7 @@
 
       // 이벤트 버블링을 사용해야하는 케이스
       // 이벤트 상속
-      // 하위 dom 객체들이 동일한 이벤트를 발생시며야 하는 경우
+      // 하위 dom 객체들이 동일한 이벤트를 발생시켜야 하는 경우
       // 상위 요소에 하나의 이벤트만 등록해서 제어
 
       const list = document.querySelector("#list");
@@ -85,12 +85,15 @@
 
         target.parentElement.style.backgroundColor = "#ccc";
         console.log("target parent li sibling", target.parentElement);
-      });
-      const siblings = parentLi.parentElement.querySelectorAll("li");
-      siblings.forEach((sibling) => {
-        if (sibling !== parentLi) {
-          sibling.style.backgroundColor = "#fff";
-        }
+
+        // 과제부분
+        const siblings = target.parentElement.parentElement.children;
+
+        Array.prototype.forEach.call(siblings, (sibling) => {
+          if (sibling !== target.parentElement) {
+            sibling.style.backgroundColor = "#fff";
+          }
+        });
       });
 
       // 다음과제
