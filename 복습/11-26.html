@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .box {
+        border: solid 1px #666;
+        padding: 30px;
+      }
+    </style>
+    <div id="parent1" class="box">
+      <div id="parent2" class="box">
+        <div id="parent3" class="box">
+          <button id="clickButton">클릭</button>
+        </div>
+      </div>
+    </div>
+
+    <input type="text" />
+
+    <ul id="list">
+      <li class="tiem1"><button data-id="1">리스트1</button></li>
+      <li class="tiem2"><button data-id="2">리스트2</button></li>
+      <li class="tiem3"><button data-id="3">리스트3</button></li>
+      <li class="tiem4"><button data-id="4">리스트4</button></li>
+    </ul>
+
+    <script>
+      "use strict";
+      // 이벤트 버블과 stopPropagation 이해하기
+      const parent1 = document.getElementById("parent1");
+      const parent2 = document.getElementById("parent2");
+      const parent3 = document.getElementById("parent3");
+      const btn = document.getElementById("clickButton");
+
+      btn.addEventListener("click", (event) => {
+        console.log("button event", event);
+        console.log("button event target", event.target);
+        event.stopPropagation();
+
+        alert("button click");
+      });
+
+      parent1.addEventListener("click", (event) => {
+        console.log("parent1 event", event);
+      });
+
+      parent2.addEventListener("click", (event) => {
+        console.log("parent2 event", event);
+      });
+
+      parent3.addEventListener("click", (event) => {
+        console.log("parent3 event", event);
+      });
+    </script>
+  </body>
+</html>

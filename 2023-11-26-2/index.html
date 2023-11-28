@@ -43,7 +43,7 @@
       // 중첩된 dom 구조 요소에서 하위요소에서 발생한 이벤트가 상위 요소까지 전달되는 현상
       // event bubbling 막기 위해 이벤트에 stopPropagation()함수 실행
 
-      // event 객체는 콜백 함수에서 첫번째 매내변수에서 받을 수 있음
+      // event 객체는 콜백 함수에서 첫번째 매개변수에서 받을 수 있음
       // target은 발생한 이벤트 객체 내의 속성 중 하나
       btn.addEventListener("click", (event) => {
         console.log("button event", event);
@@ -83,17 +83,22 @@
         console.log("list click");
         console.log("list click event", attr);
 
-        target.parentElement.style.backgroundColor = "#ccc";
+        target.parentElement.style.backgroundColor = "#ccc"; // li에 배경색을 적용함
         console.log("target parent li sibling", target.parentElement);
 
         // 과제부분
-        const siblings = target.parentElement.parentElement.children;
+        // const siblings = target.parentElement.parentElement.children;
+        if (target.tagName === "BUTTON") {
+          const parentLi = target.parentElement;
 
-        Array.prototype.forEach.call(siblings, (sibling) => {
-          if (sibling !== target.parentElement) {
-            sibling.style.backgroundColor = "#fff";
-          }
-        });
+          // 모든 li에서 배경색을 초기화
+          list.querySelectorAll("li").forEach((li) => {
+            li.style.backgroundColor = "#fff"; // 선택되지 않은 li의 배경색을 제거
+          });
+
+          // 선택된 li에 배경색을 변경
+          parentLi.style.backgroundColor = "#ccc";
+        }
       });
 
       // 다음과제
