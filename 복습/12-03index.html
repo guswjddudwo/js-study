@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        width: 200px;
+        height: 300px;
+        border: 1px solid #ccc;
+      }
+      input {
+        margin: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <input id="id" type="text" name="id" placeholder="아이디" /> <br />
+      <span style="color: red; display: none">최소 8자 이상 입력해주세요</span>
+
+      <input id="name" type="text" name="neme" placeholder="이름" /><br />
+      <span style="color: red; display: none"
+        >최소 2글자 이상 입력해주세요</span
+      >
+      <br />
+
+      <input id="age" type="number" name="age" placeholder="나이" /><br />
+      <select id="select" name="select">
+        <option>선택</option>
+        <option>남</option>
+        <option>여</option>
+      </select>
+      <br />
+      <input id="address" type="text" name="address" placeholder="주소" /><br />
+      <input id="chckebox" type="checkbox" name="chckebox" />
+      <span>개인정보 정책 동의</span>
+      <button id="submit" type="button" name="submit">submit</button>
+    </form>
+    <script>
+      "use stirct";
+      // 과제
+      // 고객 가입 폼 만들기
+      // 필요한 속성
+      // 고객 아이디 , 고객 이름 , 고객 나이(input type: number) , 고객 성별,고객 주소,개인보호 정책 동의(chckebox)
+      // 구현요건
+      // 아이디는 최소 8자 이상
+      // 이름도 최소 2글자 이상
+      // 성별, 나이는 무관
+      // 개인정보 정책동의는 반드시 체크되야함
+      // submit 버튼을 눌렸을 때 위의 validation을 다 통과시킨 이후에만 '가입완료'라는 alert을 띄운다
+    </script>
+  </body>
+</html>
