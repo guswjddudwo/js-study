@@ -41,7 +41,14 @@
       "use stirct";
       document.querySelector("#id").addEventListener("input", (event) => {
         console.log("#id input event", event);
+        const errorMessage = event.target.nextElementSibling.nextElementSibling;
+        const value = event.target.value;
+        console.log("#id input value", value);
+        if (value === "number") {
+          errorMessage.style.display = "inline";
+        }
       });
+
       // 과제
       // 고객 가입 폼 만들기
       // 필요한 속성
