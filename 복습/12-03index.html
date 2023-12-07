@@ -44,8 +44,11 @@
         const errorMessage = event.target.nextElementSibling.nextElementSibling;
         const value = event.target.value;
         console.log("#id input value", value);
-        if (value === "number") {
+        if (value.length <= 7) {
           errorMessage.style.display = "inline";
+        } else {
+          value.length > 8;
+          errorMessage.style.display = "none";
         }
       });
 
