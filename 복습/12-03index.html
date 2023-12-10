@@ -44,14 +44,42 @@
         const errorMessage = event.target.nextElementSibling.nextElementSibling;
         const value = event.target.value;
         console.log("#id input value", value);
-        if (value.length <= 7) {
-          errorMessage.style.display = "inline";
-        } else {
-          value.length > 8;
-          errorMessage.style.display = "none";
+
+        document.querySelector("#id").addEventListener("change", (event) => {
+          console.log("#id change event", event);
+        });
+
+        document
+          .querySelector("#checkbox")
+          .addEventListener("checkbox", (event) => {
+            const checked = event.target.checked;
+            console.log("#checkbox current checked", checked);
+            const checkedMessage =
+              event.target.nextElementSibling.nextElementSibling;
+
+            checkedMessage.textContent = checked ? "선택됨" : "선택안됨";
+          });
+
+        document.querySelector("submit").addEventListener("click", () => {
+          console.log("submit");
+          const from = document.querySelector("#from");
+
+          const formData = new FormData(from);
+          console.log("from Data", Object.fromEntries(formData));
+          const formObj = Object.fromEntries(formData);
+        });
+
+        if (!formObj.id) {
+          alert("id를 입력해주세요");
+          return;
         }
-        if (condition) {
-        } else {
+        if (!formObj.checkbox) {
+          alert("동의를 해주세요");
+          return;
+        }
+        if (formObj.select !== "1") {
+          alert("1번만 선택이 가능합니다");
+          return;
         }
       });
 
