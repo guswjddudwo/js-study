@@ -70,11 +70,15 @@
         });
 
         if (!formObj.id) {
-          alert("id를 입력해주세요");
+          alert("id를 입력해주세요(최소 8글자)");
           return;
         }
-        if (!formObj.checkbox) {
-          alert("동의를 해주세요");
+        if (!formObj.name) {
+          alert("성함을 입력해주세요");
+          return;
+        }
+        if (formObj.age) {
+          alert("나이를입력해주세요");
           return;
         }
         if (formObj.select !== "1") {
