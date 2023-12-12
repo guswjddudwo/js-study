@@ -68,6 +68,7 @@
 
         document.querySelector("#submit").addEventListener("click", () => {
           console.log("submit");
+          alert("가입완료");
           const from = document.querySelector("#from");
 
           const formData = new FormData(from);
@@ -75,20 +76,24 @@
           const formObj = Object.fromEntries(formData);
         });
 
-        if (!formObj.id) {
-          alert("id를 입력해주세요(최소 8글자)");
+        if (formObj.id.length < 8) {
+          alert("아이디를 8자 이상으로 입력해주세요.");
           return;
         }
-        if (!formObj.name) {
-          alert("성함을 입력해주세요");
+        if (formObj.name.length < 2) {
+          alert("이름을 2글자 이상으로 입력해주세요.");
           return;
         }
-        if (formObj.age) {
-          alert("나이를입력해주세요");
+        if (!formObj.age || formObj.age < 1) {
+          alert("나이를 입력해주세요.");
           return;
         }
-        if (formObj.select !== "1") {
-          alert("1번만 선택이 가능합니다");
+        if (formObj.select === "1") {
+          alert("성별을 선택해주세요.");
+          return;
+        }
+        if (!formObj.checkbox) {
+          alert("개인정보 정책에 동의해주세요.");
           return;
         }
       });
