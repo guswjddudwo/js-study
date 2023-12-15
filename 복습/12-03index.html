@@ -32,7 +32,7 @@
         placeholder="나이"
         maxlength="2"
       /><br />
-      <select id="select" name="select">
+      <select id="gender" name="select">
         <option value="1">선택</option>
         <option>남</option>
         <option>여</option>
@@ -45,57 +45,36 @@
     </form>
     <script>
       "use stirct";
-      document.querySelector("#id").addEventListener("input", (event) => {
-        console.log("#id input event", event);
-        const errorMessage = event.target.nextElementSibling.nextElementSibling;
-        const value = event.target.value;
-        console.log("#id input value", value);
+      document.querySelector("#submit").addEventListener("click", function () {
+        // Form validation
+        const userId = document.querySelector("#id").value;
+        const userName = document.querySelector("#name").value;
+        const userAge = document.querySelector("#age").value;
+        const userGender = document.querySelector("#gender").value;
+        const userAddress = document.querySelector("#address").value;
+        const privacyPolicy = document.querySelector("#checkbox").checked;
 
-        document.querySelector("#id").addEventListener("change", (event) => {
-          console.log("#id change event", event);
-        });
-
-        document
-          .querySelector("#checkbox")
-          .addEventListener("checkbox", (event) => {
-            const checked = event.target.checked;
-            console.log("#checkbox current checked", checked);
-            const checkedMessage =
-              event.target.nextElementSibling.nextElementSibling;
-
-            checkedMessage.textContent = checked ? "선택됨" : "선택안됨";
-          });
-
-        document.querySelector("#submit").addEventListener("click", () => {
-          console.log("submit");
-          alert("가입완료");
-          const from = document.querySelector("#from");
-
-          const formData = new FormData(from);
-          console.log("from Data", Object.fromEntries(formData));
-          const formObj = Object.fromEntries(formData);
-        });
-
-        if (formObj.id.length < 8) {
-          alert("아이디를 8자 이상으로 입력해주세요.");
+        if (id.length < 8) {
+          alert("아이디는 최소 8자 이상이어야 합니다.");
           return;
         }
-        if (formObj.name.length < 2) {
-          alert("이름을 2글자 이상으로 입력해주세요.");
+
+        if (name.length < 2) {
+          alert("이름은 최소 2글자 이상이어야 합니다.");
           return;
         }
-        if (!formObj.age || formObj.age < 1) {
-          alert("나이를 입력해주세요.");
-          return;
-        }
-        if (formObj.select === "1") {
+
+        if (!gender) {
           alert("성별을 선택해주세요.");
           return;
         }
-        if (!formObj.checkbox) {
-          alert("개인정보 정책에 동의해주세요.");
+
+        if (!checkbox) {
+          alert("개인정보 정책에 동의해야 가입이 가능합니다.");
           return;
         }
+
+        alert("가입 완료!");
       });
 
       // 과제
