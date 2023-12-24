@@ -3,10 +3,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        background-color: #eee;
+        overflow: hidden;
+        margin: 100px;
+      }
+
+      #container > #box {
+        width: 50px;
+        height: 50px;
+        background-color: #000;
+        position: absolute;
+        cursor: grab;
+      }
+    </style>
   </head>
   <body>
+    <div id="container">
+      <div id="box"></div>
+    </div>
     <script>
       "use stict";
+
+      // mouse event handler
+
+      const container = document.querySelector("#container");
+      const box = document.querySelector("#box");
+
+      // getBoundingClientRect :  dom의 상대적인 위치, 크기를 제공
+      const boxOffset = box.getBoundingClientRect();
+
+      // 중복 가능성이 있는 변수명을 바꿔줄 수 있다
+      const { width: boxWidth, height: boxHeight } = boxOffset;
+      const boxWidthHalf = boxWidth / 2;
+      const boxHeightHalf = boxHeight / 2;
+
+      let isDragStart = false;
+
+      // 마우스를 해당 dom 위치에서 눌렀을 때 발생
+      box.addEventListener("mouseover", (event) => {
+        console.log("mouseover", event);
+        box.style.backgroundColor = "red";
+      });
+      box.addEventListener("mousedown", (event) => {
+        console.log("mousedown", event);
+        isDragStart = true;
+      });
+
+      // 마우스를 해당 dom 위치에서 느른 후에 때었을 때 발생
+      container.addEventListener("mouseup", (event) => {
+        console.log("mouseup", event);
+        isDragStart = false;
+      });
+
+      container.addEventListener("mousemove", (event) => {
+        if (isDragStart) {
+          console.log("mousemove", event);
+          const { layerX, layerY } = event;
+          let moveX = layerX - boxWidthHalf;
+          let moveY = layerY - boxHeightHalf;
+
+          if (moveX <= 0) {
+            moveX = 0;
+          }
+
+          if (moveY <= 0) {
+            moveY = 0;
+          }
+
+          // 과제
+          // moveX, moveY 가 container 우측 , 하단 밑으로 못 내려가게 차단
+          // constainer의 크기값을 가져와서 moveX,Y가 해당 conainer의 가로 혹은 세로보다 크다면 막으면됨
+          // 다만 moveX,Y의 위치값은 box의 중앙에 위치되어 있기 때문에 우측과 하단을 막을 때는 박스 크기의 절반만큼 더해줘야함
+          box.style.transform = `translate(${moveX}px,${moveY}px)`;
+          console.log("boxOffset", boxOffset);
+        }
+      });
     </script>
   </body>
 </html>
