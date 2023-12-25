@@ -36,11 +36,16 @@
 
       // getBoundingClientRect :  dom의 상대적인 위치, 크기를 제공
       const boxOffset = box.getBoundingClientRect();
+      const containerOffset = container.getBoundingClientRect();
+      console.log("w,h", containerOffset);
 
       // 중복 가능성이 있는 변수명을 바꿔줄 수 있다
       const { width: boxWidth, height: boxHeight } = boxOffset;
       const boxWidthHalf = boxWidth / 2;
       const boxHeightHalf = boxHeight / 2;
+
+      const { width: containerWidth, height: containerHeight } =
+        containerOffset;
 
       let isDragStart = false;
 
@@ -74,8 +79,8 @@
           if (moveY <= 0) {
             moveY = 0;
           }
-          let moveX = layerX - boxWidthHalf;
-
+          let move1 = boxWidthHalf + containerWidth;
+          let move2 = boxHeightHalf + containerHeight;
           // 과제
           // moveX, moveY 가 container 우측 , 하단 밑으로 못 내려가게 차단
           // constainer의 크기값을 가져와서 moveX,Y가 해당 conainer의 가로 혹은 세로보다 크다면 막으면됨
