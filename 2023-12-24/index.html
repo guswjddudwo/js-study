@@ -80,12 +80,12 @@
             moveY = 0;
           }
 
-          //   const moveX1 = containerWidth + boxWidthHalf;
-          const moveY1 = containerHeight + boxHeightHalf;
-
-          if (moveX + boxWidthHalf >= containerWidth) {
+          // move X>= 250
+          if (moveX >= containerWidth - boxWidth) {
+            moveX = containerWidth - boxWidth;
           }
-          if (moveY + boxHeightHalf >= containerHeight) {
+          if (moveY >= containerHeight - boxHeight) {
+            moveY = containerHeight - boxHeight;
           }
 
           // 과제
