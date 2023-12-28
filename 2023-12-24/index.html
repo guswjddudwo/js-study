@@ -69,7 +69,7 @@
         if (isDragStart) {
           console.log("mousemove", event);
           const { layerX, layerY } = event;
-          let moveX = layerX - boxWidthHalf;
+          let moveX = layerX - boxWidthHalf; //  X - 25
           let moveY = layerY - boxHeightHalf;
 
           if (moveX <= 0) {
@@ -80,7 +80,7 @@
             moveY = 0;
           }
 
-          // move X>= 250
+          // X - 25가 250보다 크거나 같을때 ,move X는 250
           if (moveX >= containerWidth - boxWidth) {
             moveX = containerWidth - boxWidth;
           }
