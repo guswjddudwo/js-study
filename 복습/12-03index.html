@@ -41,12 +41,11 @@
     <script>
       "use stirct";
       document.querySelector("#submit").addEventListener("click", function () {
-        const userId = document.querySelector("#id").value;
-        const userName = document.querySelector("#name").value;
-        const userAge = document.querySelector("#age").value;
-        const userGender = document.querySelector("#gender").checked;
-        const userAddress = document.querySelector("#address").value;
-        const privacyPolicy = document.querySelector("#checkbox").checked;
+        console.log("submit");
+        const formData = new FormData(form);
+
+        console.log("form Data", Object.fromEntries(formData));
+        const formObj = Object.fromEntries(formData);
 
         if (userId.length < 8) {
           alert("아이디는 최소 8자 이상이어야 합니다.");
