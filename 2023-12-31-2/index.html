@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="text"><span> How to imsert letters</span></div>
+    <input type="text" id="insert" />
+    <button id="change">글자변경</button>
+    <script>
+      "use strict";
+      /**
+       * javascript에서 DOM을 추가 하는방법
+       */
+
+      // 이미 존재하는 문자열을 가져오는 방법
+
+      const text = document.querySelector("#text");
+      console.log("text", text);
+      // innerHTML: DOM과 text를 전부 반환하거나 삽입할 수 있다
+      console.log("text innerHTML", text.innerHTML);
+      // textContent: text 요소만 반환하거나 삽입할 수 있다
+      console.log("textContent", text.textContent);
+
+      const button = document.querySelector("#change");
+      button.addEventListener("click", () => {
+        const input = document.querySelector("#insert");
+        // innerHTML, text.Content 둘다 덮어씌우는 방식만 가능
+        // text.innerHTML = input.value;
+        text.innerHTML = `<p>${input.value}</p>`;
+        // text.textContent = `<p>${input.value}</p>`;
+      });
+    </script>
+  </body>
+</html>

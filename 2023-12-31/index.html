@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 10px;
+      }
+      .container {
+        display: flex;
+        gap: 0 10px;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: darkblue;
+        color: wheat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .scale-up {
+        background-color: dodgerblue;
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="1">1</div>
+      <div class="box" id="2">2</div>
+      <div class="box" id="3">3</div>
+    </div>
+    <script>
+      "use strict";
+
+      let moveX = 0;
+      const KEY_EVENT = {
+        enter: "Enter",
+        space: " ",
+        1: "1",
+        2: "2",
+        3: "3",
+      };
+      /**
+       * 2023-12-31  키보드 이벤트
+       * 포커싱이 가능한 element(input, textarea 등) 혹은 window 전역 객체에서 사용
+       * keydown , keyup, keypress
+       * keydown: 키보드 키를 누른 순간 발생
+       * keyup: 키보드 키를 눌렀다가 땟을 때 발생
+       * keypress : 키보드를 누른 상태 (사용안함) - deprectaed
+       */
+
+      window.addEventListener("keydown", (enent) => {
+        const target = document.getElementById(event.key);
+        // 선택된 타겟에 클레스 추가
+        target.classList.add("scale-up");
+      });
+      window.addEventListener("keyup", (event) => {
+        console.log("keyup event", event);
+        const target = document.getElementById(event.key);
+        // 선택된 타겟에 클레스 삭제
+        target.classList.remove("scale-up");
+      });
+
+      // 키보드 이벤트 과제
+      // 하나의 박스를 구현 (class는 편한대로)
+      // 키보드의 방향키로 박스를 제어
+      // 키보드 방향키를 누른 방향으로 이동하되 한번 누를 때마다 5px씩 이동
+      // 키보드를 누른 순간 이동하고 박스가 scale 1.2 정도 커지고 하이라이트 되어야함 (하이라이트 색상은 자유)
+      // 키보드를 때면 scale과 하이라이트가 원래 상태로 돌아옴
+      // 이동은 style.transform.translete
+      // 위치값을 누적시킬 전역 변수 2개 필요 x,y
+    </script>
+  </body>
+</html>
