@@ -37,10 +37,15 @@
         margin: 10px 0;
         background-color: #c3c0c0;
         display: flex;
-        align-items: end;
+        align-items: center;
         border-radius: 10px;
-        font-size: 50px;
+        font-size: 100px;
         justify-content: center;
+      }
+
+      .scale {
+        background-color: yellow;
+        transform: scale(1.2);
       }
     </style>
   </head>
@@ -51,11 +56,9 @@
       <div class="box" id="3">3</div>
     </div>
 
-    <div class="move">⛄︎</div>
+    <div class="move">☺︎</div>
     <script>
       "use strict";
-
-      let moveX = 0;
 
       const KEY_EVENT = {
         enter: "Enter",
@@ -73,7 +76,7 @@
        * keypress : 키보드를 누른 상태 (사용안함) - deprectaed
        */
 
-      window.addEventListener("keydown", (enent) => {
+      window.addEventListener("keydown", (event) => {
         const target = document.getElementById(event.key);
         // 선택된 타겟에 클레스 추가
         target.classList.add("scale-up");
@@ -84,8 +87,14 @@
         // 선택된 타겟에 클레스 삭제
         target.classList.remove("scale-up");
       });
+      const move = document.querySelector(".move");
+      let moveX = 0;
+      let moveY = 0;
+
       window.addEventListener("keydown", (event) => {
         const target = document.getElementById(event.key);
+        move.style.transform = `translate(${(moveX, moveY)}px, ${5}px)`;
+        target.classList.add("scale");
       });
 
       // 키보드 이벤트 과제
@@ -94,7 +103,7 @@
       // 키보드 방향키를 누른 방향으로 이동하되 한번 누를 때마다 5px씩 이동
       // 키보드를 누른 순간 이동하고 박스가 scale 1.2 정도 커지고 하이라이트 되어야함 (하이라이트 색상은 자유)
       // 키보드를 때면 scale과 하이라이트가 원래 상태로 돌아옴
-      // 이동은 style.transform.translete
+      // 이동은 style.transform.translate
       // 위치값을 누적시킬 전역 변수 2개 필요 x,y
     </script>
   </body>
