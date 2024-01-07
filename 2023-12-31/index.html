@@ -60,12 +60,13 @@
     <script>
       "use strict";
 
-      const KEY_EVENT = {
+      const MOVE_KEY_EVENT = {
         enter: "Enter",
         space: " ",
-        1: "1",
-        2: "2",
-        3: "3",
+        up: "ArrowUp",
+        down: "ArrowDown",
+        left: "ArrowLeft",
+        right: "ArrowRight",
       };
       /**
        * 2023-12-31  키보드 이벤트
@@ -76,26 +77,77 @@
        * keypress : 키보드를 누른 상태 (사용안함) - deprectaed
        */
 
-      window.addEventListener("keydown", (event) => {
+      const enableNumberKeyEvent = [1, 2, 3];
+
+      let moveX = 0;
+      let moveY = 0;
+
+      const keydownNumberBoxScaleUpEvent = (event) => {
+        if (!enableNumberKeyEvent.includes(Number(event.key))) return;
         const target = document.getElementById(event.key);
         // 선택된 타겟에 클레스 추가
         target.classList.add("scale-up");
-      });
-      window.addEventListener("keyup", (event) => {
+      };
+
+      const keyupNumberBoxScaleResetEvent = (event) => {
+        if (!enableNumberKeyEvent.includes(Number(event.key))) return;
         console.log("keyup event", event);
         const target = document.getElementById(event.key);
         // 선택된 타겟에 클레스 삭제
         target.classList.remove("scale-up");
-      });
-      const move = document.querySelector(".move");
-      let moveX = 0;
-      let moveY = 0;
+      };
 
-      window.addEventListener("keydown", (event) => {
-        const target = document.getElementById(event.key);
-        move.style.transform = `translate(${(moveX, moveY)}px, ${5}px)`;
-        target.classList.add("scale");
-      });
+      const translateBox = (target, x, y) => {
+        target.style.transform = `translate(${x}px, ${y}px)`;
+      };
+
+      const translateUpBox = (target) => {
+        moveY -= 5;
+        translateBox(target, moveX, moveY);
+      };
+
+      const translateDownBox = (target) => {
+        moveY += 5;
+        translateBox(target, moveX, moveY);
+      };
+      const translateLeftBox = (target) => {
+        moveX -= 5;
+        translateBox(target, moveX, moveY);
+      };
+
+      const translateRightBox = (target) => {
+        moveX += 5;
+        translateBox(target, moveX, moveY);
+      };
+      const keydownBoxMoveEvent = (event) => {
+        const target = document.querySelector(".move");
+        const key = event.key;
+
+        switch (key) {
+          case MOVE_KEY_EVENT.up: {
+            translateUpBox(target);
+            break;
+          }
+          case MOVE_KEY_EVENT.down: {
+            console.log("moveDown");
+            translateDownBox(target);
+            break;
+          }
+          case MOVE_KEY_EVENT.left: {
+            console.log("moveLeft");
+            translateLeftBox(target);
+            break;
+          }
+          case MOVE_KEY_EVENT.right: {
+            console.log("moveRight");
+            translateRightBox(target);
+            break;
+          }
+        }
+      };
+      window.addEventListener("keydown", keydownNumberBoxScaleUpEvent);
+      window.addEventListener("keyup", keyupNumberBoxScaleResetEvent);
+      window.addEventListener("keydown", keydownBoxMoveEvent);
 
       // 키보드 이벤트 과제
       // 하나의 박스를 구현 (class는 편한대로)

@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box1">box1</div>
+    <div id="box2">box2</div>
+
+    <script>
+      "use strict";
+
+      /**
+       * 2024-01-07
+       * element 요소를 넣고 빼는 방법
+       *
+       * createElment: html을 거치지 않고 script 내부에서 dom객체 생성
+       * append : 선택된 요소 내부의 마지막에 삽입
+       * prepend: 선택된 요소 내부의 처음에 삽입
+       * after: 선택된 요소 뒤에 삽입
+       * before: 선택된 요소 앞에 삽입
+       */
+
+      const box1 = document.querySelector("#box1");
+      const span = document.createElement("span");
+      span.setAttribute("id", "text");
+      span.textContent = "123";
+      console.log("box1", box1);
+      console.log("span", span);
+
+      box1.be(span);
+    </script>
+  </body>
+</html>
