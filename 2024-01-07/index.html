@@ -5,11 +5,11 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="box1">box1</div>
+    <!-- <div id="box1">box1</div> -->
     <!-- <div id="box2">box2</div> -->
-    <aside class="semantic">
+    <div class="semantic">
       주요 콘텐츠와 관련이 있지만 필수적이지 않은 부가 정보
-    </aside>
+    </div>
 
     <script>
       "use strict";
@@ -34,14 +34,14 @@
 
       box1.before(span);
 
-      const semantic = document.querySelector(".semantic");
-      const text = document.createElement("span");
+      const semantic = document.querySelector(".semantics");
+      const span1 = document.createElement("span");
       span.setAttribute("class", "text");
+      span.textContent = "test";
       console.log("semantic", semantic);
-      console.log("textContent", text);
-      semantic.textContent = "test";
+      console.log("span1", span1);
 
-      semantic.append(span);
+      box1.prpeend(span);
     </script>
   </body>
 </html>
