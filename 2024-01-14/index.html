@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      "use strict";
+
+      const lists = [
+        { id: 1, content: "BMW" },
+        { id: 3, content: "benz" },
+        { id: 4, content: "kia" },
+        { id: 5, content: "k5" },
+      ];
+      const root = document.getElementById("root");
+
+      const ul = document.createElement("ul");
+
+      for (const list of lists) {
+        const li = document.createElement("li"); // dom object -> 매모리에 참조주소로 저장
+        li.setAttribute("id", `list-${list.id}`); // html tag가 가진 속성을 추가할때 사용
+        li.textContent = list.content;
+        li.addEventListener("click", (event) => {
+          const element = event.target;
+          const style = element.style;
+          if (style.backgroundColor) {
+            style.backgroundColor = "";
+          } else {
+            style.backgroundColor = "skyblue";
+          }
+        });
+        ul.append(li);
+      }
+
+      //   const selectLi = document.querySelector("li");
+      //   console.log(selectLi);
+      //   root에 ul이 들어가기 전이라 null
+      root.append(ul);
+
+      //   const selectList = document.querySelector("li#list-1"); // DOM object
+      //   console.log(selectList); // root에 ul이 노출된 이후라 나타남
+
+      //   selectList.addEventListener("click", () => {
+      //     console.log("click list#1");
+      //   });
+    </script>
+  </body>
+</html>
