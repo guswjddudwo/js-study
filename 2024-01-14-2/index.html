@@ -40,7 +40,11 @@
       const tbody = document.createElement("tbody");
       for (const row of rows) {
         const tr = document.createElement("tr");
-        tr.setAttribute("id", `headers-${headers.id}`);
+        for (const header of headers) {
+          const th = document.createElement("th");
+          th.textContent = row[header.id];
+          tr.append(th);
+        }
 
         // 2024-01-14 과제
         // tr 내부에 td 채우기
