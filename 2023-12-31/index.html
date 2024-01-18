@@ -99,25 +99,29 @@
 
       const translateBox = (target, x, y) => {
         target.style.transform = `translate(${x}px, ${y}px)`;
-        target.style.backgroundcolor;
+        if (target.style.backgroundColor) {
+          target.style.backgroundColor = "";
+        } else {
+          target.style.backgroundColor = "yellow";
+        }
       };
 
       const translateUpBox = (target) => {
-        moveY -= 5;
+        moveY -= 50;
         translateBox(target, moveX, moveY);
       };
 
       const translateDownBox = (target) => {
-        moveY += 5;
+        moveY += 50;
         translateBox(target, moveX, moveY);
       };
       const translateLeftBox = (target) => {
-        moveX -= 5;
+        moveX -= 50;
         translateBox(target, moveX, moveY);
       };
 
       const translateRightBox = (target) => {
-        moveX += 5;
+        moveX += 50;
         translateBox(target, moveX, moveY);
       };
       const keydownBoxMoveEvent = (event) => {
