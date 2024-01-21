@@ -1,0 +1,131 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      "use strict";
+
+      const headers = [
+        { id: "company", title: "제조사" },
+        { id: "carType", title: "차종" },
+        { id: "shippingDate", title: "출고일" },
+      ];
+      const rows = [
+        { company: "bmw", carType: "BMW", shippingDate: "2023-12-30" },
+        { company: "kia", carType: "k5", shippingDate: "2024-03-11" },
+        { company: "benz", carType: "u5", shippingDate: "2024-02-15" },
+        { company: "Ionic", carType: "i5", shippingDate: "2024-02-16" },
+      ];
+
+      const root = document.getElementById("root");
+
+      const table = document.createElement("table");
+
+      const styles = {
+        table: {
+          borderSpacing: "0",
+          borderCollapse: "collapse",
+        },
+        column: {
+          border: "solid 1px #ccc",
+          padding: "15px",
+        },
+        box: {
+          display: "flex",
+          gap: "0 10px",
+        },
+      };
+
+      Object.assign(table.style, styles.table);
+
+      const thead = document.createElement("thead");
+      const theadRow = document.createElement("tr");
+
+      for (const header of headers) {
+        const th = document.createElement("th");
+        Object.assign(table.style, styles.column);
+        th.textContent = header.title;
+
+        theadRow.append(th);
+      }
+      thead.append(theadRow);
+
+      const createTableColumn = (index, content) => {
+        const td = document.createElement("td");
+        const div = document.createElement("div");
+
+        Object.assign(td.style, styles.column);
+        Object.assign(div.style, styles.box);
+
+        const [apppendBtn, prependBtn] = [
+          document.createElement("button"),
+          document.createElement("button"),
+        ];
+        const isLastColumn = index === headers.length - 1;
+
+        apppendBtn.textContent = "append";
+        prependBtn.textContent = "prepend";
+
+        apppendBtn.addEventListener("click", appendRow);
+        prependBtn.addEventListener("click", prependRow);
+
+        div.append(content, ...(isLastColumn ? [apppendBtn, prependBtn] : []));
+        td.append(div);
+
+        return td;
+      };
+
+      const appendRow = (event) => {
+        const target = event.target;
+        const parentRow = target.closest("tr");
+        const afterRow = document.createElement("tr");
+
+        const columns = {
+          company: "bmw",
+          carType: "BMW",
+          shippingDate: "2023-12-30",
+        };
+
+        for (const [index, column] of Object.values(columns).entries()) {
+          const td = createTableColumn(index, column);
+          afterRow.append(td);
+        }
+
+        parentRow.after(afterRow);
+        console.log("append event", parentRow);
+      };
+      const prependRow = (event) => {
+        const target = event.target;
+        const parentRow = target.closest("tr");
+        console.log("prepend eveent", parentRow);
+      }; // 채우기 ......
+
+      const creaTableBody = () => {
+        const tbody = document.createElement("tbody");
+
+        for (const row of rows) {
+          const tr = document.createElement("tr");
+
+          // Array entries()
+          // for of에서 [index,value] 구조로 분해해서 index를 가져올 수 있음
+
+          for (const [index, column] of headers.entries()) {
+            const td = createTableColumn(index, row[column.id]);
+            tr.append(td);
+          }
+
+          tbody.append(tr);
+        }
+
+        return tbody;
+      };
+      table.append(thead, creaTableBody());
+      root.append(table);
+    </script>
+  </body>
+</html>
