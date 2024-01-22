@@ -24,6 +24,17 @@
 
       const root = document.getElementById("root");
       const table = document.createElement("table");
+
+      const thead = document.createElement("thead");
+      const theadRow = document.createElement("tr");
+
+      for (const header of headers) {
+        const th = document.createElement("th");
+        th.textContent = headers.title;
+        theadRow.append(th);
+      }
+
+      thead.append(theadRow);
     </script>
   </body>
 </html>
