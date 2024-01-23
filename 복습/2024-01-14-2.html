@@ -35,6 +35,16 @@
       }
 
       thead.append(theadRow);
+
+      const tbody = document.createElement("tbody");
+      for (const row of rows) {
+        const tr = document.createElement("tr");
+        for (const header of headers) {
+          const th = document.createElement("th");
+          th.textContent = row(header.id);
+          tr.append(th);
+        }
+      }
     </script>
   </body>
 </html>
