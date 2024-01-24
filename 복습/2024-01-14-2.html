@@ -44,7 +44,11 @@
           th.textContent = row(header.id);
           tr.append(th);
         }
+        tbody.append(tr);
       }
+
+      table.append(thead, tbody);
+      root.append(table);
     </script>
   </body>
 </html>
