@@ -103,6 +103,9 @@
         const target = event.target;
         const parentRow = target.closest("tr");
         console.log("prepend eveent", parentRow);
+
+        for (const [index, column] of Object.values(columns).entries()) {
+        }
       }; // 채우기 ......
 
       const creaTableBody = () => {
