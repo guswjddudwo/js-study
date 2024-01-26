@@ -82,7 +82,7 @@
 
       const appendRow = (event) => {
         const target = event.target;
-        const parentRow = target.closest("tr");
+        const prependRow = target.closest("tr");
         const afterRow = document.createElement("tr");
 
         const columns = {
@@ -96,16 +96,26 @@
           afterRow.append(td);
         }
 
-        parentRow.after(afterRow);
-        console.log("append event", parentRow);
+        prependRow.after(afterRow);
+        console.log("append event", prependRow);
       };
       const prependRow = (event) => {
         const target = event.target;
-        const parentRow = target.closest("tr");
-        console.log("prepend eveent", parentRow);
+        const prependRow = target.closest("tr");
+        const beforeRow = document.createElement("tr");
+        console.log("prepend event", prependRow);
+
+        const columns = {
+          company: "bmw",
+          carType: "BMW",
+          shippingDate: "2023-12-30",
+        };
 
         for (const [index, column] of Object.values(columns).entries()) {
+          const td = createTableColumn(index, column);
+          beforeRow.prepend(td);
         }
+        prependRow.before(beforeRow);
       }; // 채우기 ......
 
       const creaTableBody = () => {
