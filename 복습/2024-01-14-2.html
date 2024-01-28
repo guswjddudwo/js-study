@@ -40,9 +40,9 @@
       for (const row of rows) {
         const tr = document.createElement("tr");
         for (const header of headers) {
-          const th = document.createElement("th");
-          th.textContent = row(header.id);
-          tr.append(th);
+          const td = document.createElement("td");
+          td.textContent = row(header.id);
+          tr.append(td);
         }
         tbody.append(tr);
       }

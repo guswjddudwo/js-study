@@ -108,12 +108,12 @@
         const columns = {
           company: "kia",
           carType: "asd",
-          shippingDate: "2023-12-30",
+          shippingDate: "2024-01-24",
         };
 
         for (const [index, column] of Object.values(columns).entries()) {
           const td = createTableColumn(index, column);
-          beforeRow.prepend(td);
+          beforeRow.append(td);
         }
         prependRow.before(beforeRow);
       }; // 채우기 ......

@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /**
+       * 2024-01-28 Promise 객체
+       * pending: 성공,실패 여부를 반환하지 않고 아직은 기다리는 상태
+       * fullfilled: 정상적으로 성공한 경우
+       * reject: 실패한경우
+       */
+
+      const resolvePromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("success");
+        }, 5000);
+      });
+      console.log("resolvePromise", resolvePromise);
+
+      resolvePromise.then((message) => {
+        console.log(message);
+        console.log("resolvePromise", resolvePromise);
+      });
+      // reject
+      const rejectPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("fail");
+        }, 5000);
+      });
+      console.log("rejectPromise", rejectPromise);
+
+      // fullfulled === resvolvee
+      rejectPromise.then().catch((error) => {
+        console.log(error);
+        console.log("rejectPromise", rejectPromise);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <div id="root"></div>
+  <body>
+    <script>
+      "use strict";
+      const headers = [
+        { id: "company", title: "제조사" },
+        { id: "carType", title: "차종" },
+        { id: "shippingDate", title: "출고일" },
+      ];
+      const rows = [
+        { company: "bmw", carType: "BMW", shippingDate: "2023-12-30" },
+        { company: "kia", carType: "k5", shippingDate: "2024-03-11" },
+        { company: "benz", carType: "u5", shippingDate: "2024-02-15" },
+        { company: "Ionic", carType: "i5", shippingDate: "2024-02-16" },
+      ];
+
+      const root = document.createElement("root");
+
+      const table = document.createElement("table");
+
+      const styles = {
+        table: {
+          borderSpacing: "0",
+          borderCollapse: "collapse",
+        },
+        column: {
+          border: "solid 1px #ccc",
+          padding: "15px",
+        },
+        box: {
+          display: "flex",
+          gap: "0 10px",
+        },
+      };
+
+      Object.assign(table.style, styles.table);
+      const thead = document.createElement("thead");
+    </script>
+  </body>
+</html>
