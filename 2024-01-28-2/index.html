@@ -40,7 +40,7 @@
       getPosts().then((result) => {
         for (const post of posts) {
           const li = document.createElement("li");
-          li.textContent = [post.title, post.body];
+          li.textContent = `${post.title}-${post.body}`;
           ul.append(li);
         }
         console.log("result", result);
