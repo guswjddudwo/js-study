@@ -25,11 +25,11 @@
       root.append(ul);
 
       getPosts().then((posts) => {
-        posts.forEach((post) => {
+        for (const post of posts) {
           const li = document.createElement("li");
           li.textContent = `${post.title} - ${post.body}`;
           ul.append(li);
-        });
+        }
       });
     </script>
   </body>
