@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .on {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(213, 16, 16);
+      }
+    </style>
+  </head>
+  <button id="myButton">click Me</button>
+  <body>
+    <script>
+      "use strict";
+
+      const btn = document.querySelector("#myButton");
+
+      btn.addEventListener("click", (event) => {
+        btn.classList.add("on");
+        console.log("버튼이 클릭되었습니다");
+      });
+    </script>
+  </body>
+</html>
