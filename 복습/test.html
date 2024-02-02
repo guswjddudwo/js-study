@@ -7,14 +7,19 @@
   <body>
     <script>
       "use strict";
-      function removeDuplicates(str) {
-        return str
-          .split("")
-          .filter((char, index, array) => array.indexOf(char) === index)
-          .join("");
-      }
 
-      console.log(removeDuplicates("programming")); // "progamin"
+      // 중복 배열 제거 하기
+      const arr = [1, 2, 3, 3, 6, 4, 2, 1, 10];
+      // 중복 배열 제거하기 indexOf 방법
+      const array = arr.filter((item, nums) => {
+        return arr.indexOf(item) === nums;
+      });
+
+      console.log(array);
+
+      // set() 방법으로 제거하기
+      const mySet = new Set(arr);
+      console.log(mySet);
     </script>
   </body>
 </html>
