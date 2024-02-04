@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    main {
+      width: 900px;
+      padding: 50px;
+    }
+    section {
+      position: relative;
+    }
+    .search-filter {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ddd;
+      padding: 15px;
+      background-color: #ffffff86;
+
+      /*중첩 구문 사용 가능(최신 버전만 가능)*/
+      > div {
+        display: flex;
+        gap: 5px;
+      }
+    }
+  </style>
+  <main>
+    <section id="posts">
+      <div class="search-filter">
+        <div>
+          <select id="type"></select>
+          <input type="text" placeholder="제목을 입력해주세요" />
+        </div>
+        <button>search</button>
+      </div>
+    </section>
+  </main>
+  <body>
+    <script>
+      "use strict";
+
+      /**
+       * post 객체
+       * id: 번호
+       * tltle: 제목
+       * type: 종류
+       * createdAt: 생성일(날짜)
+       */
+      const posts = [
+        {
+          id: 1,
+          title: "제목",
+          type: "일기",
+          createdAt: "2023-01-23",
+        },
+        {
+          id: 2,
+          title: "제목",
+          type: "요리",
+          createdAt: "2023-02-03",
+        },
+        {
+          id: 3,
+          title: "제목",
+          type: "문의",
+          createdAt: "2023-05-13",
+        },
+      ];
+
+      const section = document.querySelector("#posts");
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      const theadRow = document.createElement("tr");
+
+      const headerText = {
+        id: "번호",
+        title: "제목",
+        type: "종류",
+        createdAt: "날짜",
+      };
+
+      console.log(headerText["id"]);
+      console.log(headerText["title"]);
+      console.log(headerText["type"]);
+      console.log(headerText["createdAt"]);
+
+      for (const header of Object.keys(posts[0])) {
+        console.log(header);
+        console.log(headerText[header]);
+        const th = document.createElement("th");
+        th.textContent = headerText[header];
+        theadRow.append(th);
+      }
+
+      const actionHead = document.createElement("th");
+      theadRow.append(actionHead);
+
+      thead.append(theadRow);
+      table.append(thead);
+      section.append(table);
+    </script>
+  </body>
+</html>
