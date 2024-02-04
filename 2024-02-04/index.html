@@ -5,6 +5,11 @@
     <title>Document</title>
   </head>
   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
     main {
       width: 900px;
       padding: 50px;
@@ -26,6 +31,23 @@
         display: flex;
         gap: 5px;
       }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
     }
   </style>
   <main>
@@ -53,19 +75,19 @@
       const posts = [
         {
           id: 1,
-          title: "제목",
+          title: "제목1",
           type: "일기",
           createdAt: "2023-01-23",
         },
         {
           id: 2,
-          title: "제목",
+          title: "제목2",
           type: "요리",
           createdAt: "2023-02-03",
         },
         {
           id: 3,
-          title: "제목",
+          title: "제목3",
           type: "문의",
           createdAt: "2023-05-13",
         },
@@ -83,14 +105,14 @@
         createdAt: "날짜",
       };
 
-      console.log(headerText["id"]);
-      console.log(headerText["title"]);
-      console.log(headerText["type"]);
-      console.log(headerText["createdAt"]);
+      //   console.log(headerText["id"]);
+      //   console.log(headerText["title"]);
+      //   console.log(headerText["type"]);
+      //   console.log(headerText["createdAt"]);
 
       for (const header of Object.keys(posts[0])) {
-        console.log(header);
-        console.log(headerText[header]);
+        // console.log(header);
+        // console.log(headerText[header]);
         const th = document.createElement("th");
         th.textContent = headerText[header];
         theadRow.append(th);
@@ -99,8 +121,23 @@
       const actionHead = document.createElement("th");
       theadRow.append(actionHead);
 
+      // body 영역
+      const tbody = document.createElement("tbody");
+
+      for (const rowData of posts) {
+        const row = tbody.insertRow();
+        for (const key of Object.keys(rowData)) {
+          const cell = row.insertCell();
+          cell.textContent = rowData[key];
+        }
+        const buttonCell = row.insertCell();
+        const button = document.createElement("button");
+        button.textContent = "삭제";
+        buttonCell.appendChild(button);
+      }
+
       thead.append(theadRow);
-      table.append(thead);
+      table.append(thead, tbody);
       section.append(table);
     </script>
   </body>

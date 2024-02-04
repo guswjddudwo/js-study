@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>종류</th>
+          <th>날짜</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      const posts = [
+        { id: 1, title: "제목1", type: "종류1", createdAt: "2023-01-23" },
+        { id: 2, title: "제목2", type: "종류2", createdAt: "2023-02-03" },
+        { id: 3, title: "제목3", type: "종류3", createdAt: "2023-05-13" },
+      ];
+
+      const tbody = document.querySelector("#myTable tbody");
+
+      for (const post of posts) {
+        const newRow = tbody.insertRow();
+
+        for (const value of Object.values(post)) {
+          const cell = newRow.insertCell();
+          cell.textContent = value;
+        }
+      }
+    </script>
+  </body>
+</html>
