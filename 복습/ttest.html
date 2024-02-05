@@ -13,12 +13,12 @@
       }
 
       #app {
-        max-width: 400px;
+        max-width: 500px;
         margin: 20px auto;
         background-color: #fff;
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box; /* 변경된 부분 */
       }
 
       .header {
@@ -40,20 +40,20 @@
       input[type="text"] {
         flex: 1;
         padding: 10px;
-        border: 2px solid #4caf50; /* 변경된 부분 */
+        border: 2px solid #000000; /* 변경된 부분 */
         border-radius: 4px;
         margin-right: 10px;
       }
 
       button {
-        background-color: #4caf50;
+        background-color: #000000;
+        box-sizing: border-box;
         color: #fff;
         border: none;
         padding: 10px;
         cursor: pointer;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
       }
 
       ul {
@@ -76,7 +76,7 @@
         appearance: none;
         width: 20px;
         height: 20px;
-        border: 2px solid #4caf50;
+        border: 2px solid #000000;
         border-radius: 50%;
         cursor: pointer;
         outline: none;
@@ -97,12 +97,13 @@
       }
 
       .delete-btn {
-        background-color: #ff5733;
-        color: #fff;
+        background-color: #ffffff;
+        color: #000000;
         border: none;
         padding: 8px;
         cursor: pointer;
         border-radius: 4px;
+        margin-left: 10px; /* 추가된 부분 */
       }
     </style>
   </head>
@@ -118,16 +119,12 @@
           <li>
             <input type="checkbox" class="checkbox" />
             <span class="task-text">Task 1</span>
-            <button class="delete-btn" onclick="deleteTask(this)">
-              Delete
-            </button>
+            <button class="delete-btn" onclick="deleteTask(this)">삭제</button>
           </li>
           <li>
             <input type="checkbox" class="checkbox" />
             <span class="task-text">Task 2</span>
-            <button class="delete-btn" onclick="deleteTask(this)">
-              Delete
-            </button>
+            <button class="delete-btn" onclick="deleteTask(this)">삭제</button>
           </li>
         </ul>
       </div>
