@@ -3,49 +3,161 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Table</title>
+    <title>Todo List</title>
     <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
       }
 
-      th,
-      td {
-        border: 1px solid #ddd;
+      #todoContainer {
+        max-width: 400px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      input[type="text"] {
+        width: 60%;
         padding: 8px;
-        text-align: left;
+        margin-right: 8px;
+      }
+
+      button {
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 8px 0;
+      }
+
+      .checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        cursor: pointer;
+      }
+
+      .deleteButton {
+        background-color: #ff6666;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .checked {
+        text-decoration: line-through;
+        position: relative;
+      }
+
+      .checked::before {
+        content: "✔";
+        font-size: 18px;
+        color: #28a745;
+        position: absolute;
+        left: -25px;
       }
     </style>
   </head>
   <body>
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>번호</th>
-          <th>제목</th>
-          <th>종류</th>
-          <th>날짜</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <div id="todoContainer">
+      <h1>Todo List</h1>
+
+      <div>
+        <input type="text" id="taskInput" placeholder="Add a new task" />
+        <button onclick="addTask()">Add Task</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </div>
 
     <script>
-      const posts = [
-        { id: 1, title: "제목1", type: "종류1", createdAt: "2023-01-23" },
-        { id: 2, title: "제목2", type: "종류2", createdAt: "2023-02-03" },
-        { id: 3, title: "제목3", type: "종류3", createdAt: "2023-05-13" },
-      ];
+      class TodoList {
+        constructor() {
+          this.tasks = [
+            { text: "Task 1", checked: false },
+            { text: "Task 2", checked: true },
+          ];
+        }
 
-      const tbody = document.querySelector("#myTable tbody");
+        addTask(task) {
+          this.tasks.push({ text: task, checked: false });
+        }
 
-      for (const post of posts) {
-        const newRow = tbody.insertRow();
+        removeTask(index) {
+          this.tasks.splice(index, 1);
+        }
 
-        for (const value of Object.values(post)) {
-          const cell = newRow.insertCell();
-          cell.textContent = value;
+        displayTasks() {
+          const taskList = document.getElementById("taskList");
+          taskList.innerHTML = "";
+
+          this.tasks.forEach((task, index) => {
+            const li = document.createElement("li");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "checkbox";
+            checkbox.checked = task.checked;
+            checkbox.onclick = () => {
+              task.checked = !task.checked;
+              this.displayTasks();
+            };
+
+            li.appendChild(checkbox);
+
+            const taskText = document.createElement("span");
+            taskText.textContent = task.text;
+
+            if (task.checked) {
+              taskText.classList.add("checked");
+            }
+
+            li.appendChild(taskText);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.className = "deleteButton";
+            deleteButton.onclick = () => {
+              this.removeTask(index);
+              this.displayTasks();
+            };
+
+            li.appendChild(deleteButton);
+
+            taskList.appendChild(li);
+          });
+        }
+      }
+
+      const myTodoList = new TodoList();
+      myTodoList.displayTasks();
+
+      function addTask() {
+        const taskInput = document.getElementById("taskInput");
+        const newTask = taskInput.value.trim();
+
+        if (newTask !== "") {
+          myTodoList.addTask(newTask);
+          myTodoList.displayTasks();
+          taskInput.value = "";
         }
       }
     </script>
