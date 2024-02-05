@@ -45,14 +45,17 @@
 
       // event 객체는 콜백 함수에서 첫번째 매개변수에서 받을 수 있음
       // target은 발생한 이벤트 객체 내의 속성 중 하나
-      btn.addEventListener("click", (event) => {
-        console.log("button event", event);
-        console.log("button event", event.target);
+      // btn.addEventListener("click", (event) => {
+      //   console.log("button event", event);
+      //   console.log("button event", event.target);
+      //   event.stopPropagation();
+
+      //   alert("button click");
+      // });
+
+      btn.addEventListener("cilck", (evnt) => {
         event.stopPropagation();
-
-        alert("button click");
       });
-
       const parent1 = document.querySelector("#parent1");
       const parent2 = document.querySelector("#parent2");
       const parent3 = document.querySelector("#parent3");
