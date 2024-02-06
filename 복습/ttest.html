@@ -13,7 +13,7 @@
       }
 
       #app {
-        max-width: 500px;
+        width: 500px;
         margin: 20px auto;
         background-color: #fff;
         padding: 20px;
@@ -33,6 +33,7 @@
       }
 
       .add-task {
+        width: 300px;
         display: flex;
         margin-bottom: 10px;
       }
@@ -69,7 +70,6 @@
         padding: 10px;
         margin-bottom: 10px;
         border-radius: 4px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       }
 
       .checkbox {
@@ -87,8 +87,8 @@
       }
 
       .checkbox:checked {
-        background-color: #4caf50;
-        border: 2px solid #4caf50;
+        background-color: #000000;
+        border: 2px solid #000000;
       }
 
       .task-text {
@@ -97,13 +97,14 @@
       }
 
       .delete-btn {
+        box-sizing: border-box;
         background-color: #ffffff;
         color: #000000;
         border: none;
         padding: 8px;
         cursor: pointer;
         border-radius: 4px;
-        margin-left: 10px; /* 추가된 부분 */
+        margin-left: 10px;
       }
     </style>
   </head>
