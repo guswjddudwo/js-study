@@ -13,12 +13,12 @@
       }
 
       #app {
-        width: 500px;
+        max-width: 500px;
         margin: 20px auto;
         background-color: #fff;
         padding: 20px;
         border-radius: 8px;
-        box-sizing: border-box; /* 변경된 부분 */
+        box-sizing: border-box;
       }
 
       .header {
@@ -27,13 +27,7 @@
         margin-bottom: 20px;
       }
 
-      .todo-container {
-        display: flex;
-        flex-direction: column;
-      }
-
       .add-task {
-        width: 300px;
         display: flex;
         margin-bottom: 10px;
       }
@@ -41,20 +35,20 @@
       input[type="text"] {
         flex: 1;
         padding: 10px;
-        border: 2px solid #000000; /* 변경된 부분 */
+        border: 2px solid #000000;
         border-radius: 4px;
         margin-right: 10px;
       }
 
       button {
         background-color: #000000;
-        box-sizing: border-box;
         color: #fff;
         border: none;
-        padding: 10px;
+        padding: 12px; /* 변경된 부분 */
         cursor: pointer;
-        width: 40px;
-        height: 40px;
+        min-width: 30px;
+        height: 30px;
+        font-size: 14px; /* 변경된 부분 */
       }
 
       ul {
@@ -70,13 +64,14 @@
         padding: 10px;
         margin-bottom: 10px;
         border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       }
 
       .checkbox {
         appearance: none;
         width: 20px;
         height: 20px;
-        border: 2px solid #000000;
+        border: 2px solid #4caf50;
         border-radius: 50%;
         cursor: pointer;
         outline: none;
@@ -87,8 +82,8 @@
       }
 
       .checkbox:checked {
-        background-color: #000000;
-        border: 2px solid #000000;
+        background-color: #4caf50;
+        border: 2px solid #4caf50;
       }
 
       .task-text {
@@ -97,38 +92,24 @@
       }
 
       .delete-btn {
-        box-sizing: border-box;
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #ff5733;
+        color: #fff;
         border: none;
-        padding: 8px;
+        padding: 12px; /* 변경된 부분 */
         cursor: pointer;
         border-radius: 4px;
-        margin-left: 10px;
+        font-size: 14px; /* 변경된 부분 */
       }
     </style>
   </head>
   <body>
     <div id="app">
       <div class="header">Todo List</div>
-      <div class="todo-container">
-        <div class="add-task">
-          <input type="text" id="taskInput" placeholder="Add a new task" />
-          <button id="addTaskBtn">+</button>
-        </div>
-        <ul id="taskList">
-          <li>
-            <input type="checkbox" class="checkbox" />
-            <span class="task-text">Task 1</span>
-            <button class="delete-btn" onclick="deleteTask(this)">삭제</button>
-          </li>
-          <li>
-            <input type="checkbox" class="checkbox" />
-            <span class="task-text">Task 2</span>
-            <button class="delete-btn" onclick="deleteTask(this)">삭제</button>
-          </li>
-        </ul>
+      <div class="add-task">
+        <input type="text" id="taskInput" placeholder="Add a new task" />
+        <button id="addTaskBtn">+</button>
       </div>
+      <ul id="taskList"></ul>
     </div>
 
     <script>
