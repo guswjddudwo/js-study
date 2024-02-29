@@ -42,6 +42,11 @@
         border-radius: 3px;
         font-size: 20px;
         color: #ffffff;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
       }
     </style>
   </head>
@@ -52,12 +57,28 @@
         그리고 헤더 부분에 제목
         input 란 옆에 버튼까지
         그 아래는 목록들있어야 함  -->
-      <div class="header">반드기 하기</div>
+      <div class="header">오늘의 할일</div>
       <div class="add">
         <input type="text" placeholder="할일을 입력하세요" />
         <button class="addBtn">+</button>
       </div>
     </div>
-    <script></script>
+    <script>
+      const addText = document.querySelector("input");
+      const addBtn = document.querySelector(".addBtn");
+      const ul = document.createElement("ul");
+      const checkbox = document.createElement("checkbox");
+
+      addBtn.addEventListener("click", () => {
+        addText.addEventListener("keydown", (event) => {
+          event.key === "Enter";
+        });
+        const li = document.createElement("li");
+        li.textContent = addText.value;
+        ul.append(li);
+      });
+
+      root.append(ul);
+    </script>
   </body>
 </html>
