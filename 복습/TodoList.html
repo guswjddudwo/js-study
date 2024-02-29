@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #eaeaea;
+        margin: 0;
+        padding: 0;
+      }
+
+      #root {
+        max-width: 500px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .header {
+        margin-bottom: 20px;
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid #000;
+        font-size: 18px;
+      }
+      input::placeholder {
+        color: #9c9c9c;
+      }
+
+      .addBtn {
+        background-color: #9bb9e9;
+        border: none;
+        border-radius: 3px;
+        font-size: 20px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- todoList 만들기위해 먼저 해야할것 생각하기
+        우선 전체를 감싸는 박스가 필요함 
+        그리고 헤더 부분에 제목
+        input 란 옆에 버튼까지
+        그 아래는 목록들있어야 함  -->
+      <div class="header">반드기 하기</div>
+      <div class="add">
+        <input type="text" placeholder="할일을 입력하세요" />
+        <button class="addBtn">+</button>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
