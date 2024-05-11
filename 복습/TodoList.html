@@ -49,13 +49,16 @@
       ul {
         list-style: none;
         padding: 0;
+        display: flex;
+        column-gap: 10px;
       }
 
       li {
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
         margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center; /* 가로 중앙 정렬 */
       }
 
       .checkbox {
@@ -65,11 +68,17 @@
         border-radius: 50%;
         cursor: pointer;
         outline: none;
+        margin-right: 10px; /* 아이콘과 텍스트 간격 설정 */
+      }
+
+      .todo-container {
+        display: flex;
+        flex-direction: column;
       }
     </style>
   </head>
   <body>
-    <div id="root">
+    <div id="root" class="todo-container">
       <!-- todoList 만들기위해 먼저 해야할것 생각하기
         우선 전체를 감싸는 박스가 필요함 
         그리고 헤더 부분에 제목
