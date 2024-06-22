@@ -43,7 +43,7 @@
         let d = 2;
         console.log("c", c);
       }
-      // let 변수는 bloc lavel scope 라서 하위 블록에 있는 변수를 참조할 수 없음
+      // let 변수는 bloc lave scope 라서 하위 블록에 있는 변수를 참조할 수 없음
       // consol.log("d",d);  // 에러가 나면 스크립트 중단
 
       const j = 5;
@@ -61,14 +61,14 @@
       // console.log("g", g);
       // console.log("h", h);
 
-      // var 변수는 호이스팅이 되는데 undefind로 초기값이 정해짐
+      // var 변수는 호이스팅이 되는데 undefined로 초기값이 정해짐
       // 호이스팅: 코드 실행 전 변수를 최상단으로 끌어올려 초기화 하는 현상
-      console.log("neme1", name1);
+      console.log("name1", name1);
       var name1 = "chris";
 
-      // console.log("neme2", name2); // 초기화 전에 참조하면 error! 기술면접용 ***
+      // console.log("name2", name2); // 초기화 전에 참조하면 error! 기술면접용 ***
       let name2 = "judy";
-      console.log("neme2", name2);
+      console.log("name2", name2);
 
       const name3 = "evan"; // 상수는 초기화 이후 값을 바꿀 수 없음
       // name3 = "phillip";
