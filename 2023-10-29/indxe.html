@@ -28,9 +28,9 @@
 
       // new 키워드를 사용하지 않고 함수 호출시에
       // this는
-      //'use strict' 모드에서는 undefind
+      //'use strict' 모드에서는 undefined
       // use strict' 가 없다면 window 전역 객체
-      // return이 없다면 암묵적으로 undefind 반환
+      // return이 없다면 암묵적으로 undefined 반환
       //   const car0 = Car();
 
       //new 키워드를 사용하는 생성자 함수 호출시에
@@ -47,7 +47,7 @@
       console.log("car3", car3);
       console.log("car4", car4);
 
-      // ...args: spred 문법을 통해 매개변수 영역을 선언하면
+      // ...args: spread 문법을 통해 매개변수 영역을 선언하면
       // 호출 시에 들어오는 모든 매개변수를 배열화해서 보여줌
       function Market(...cars) {
         this.cars = cars;

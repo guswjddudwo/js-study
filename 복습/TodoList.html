@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,14 +26,19 @@
         font-size: 40px;
         text-align: center;
         font-weight: bold;
+        color: #202020;
       }
       .add {
         text-align: center;
+        margin-bottom: 20px;
       }
       input {
         border: none;
         border-bottom: 1px solid #000;
         font-size: 18px;
+        padding: 5px;
+        box-sizing: border-box;
+        width: 200px; /* 입력 필드 너비 설정 */
       }
       input::placeholder {
         color: #9c9c9c;
@@ -45,70 +51,119 @@
         font-size: 20px;
         color: #ffffff;
         cursor: pointer;
+        padding: 5px 10px;
+        margin-left: 10px;
       }
+
       ul {
         list-style: none;
         padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         column-gap: 10px;
-        /* align-items: center; */
+        width: 100%; /* ul이 container의 너비를 차지하도록 설정 */
       }
 
       li {
         margin-bottom: 10px;
         padding: 10px;
-        border-radius: 5px;
         display: flex;
-        justify-content: center; /* 가로 중앙 정렬 */
+        align-items: center;
+        width: 100%; /* li가 container 너비를 채우도록 설정 */
+        position: relative; /* 삭제 버튼을 절대 위치로 배치하기 위해 설정 */
       }
 
       .checkbox {
         width: 20px;
         height: 20px;
-        border: 2px solid #000000;
+        border: 2px solid #000;
         border-radius: 50%;
         cursor: pointer;
         outline: none;
         margin-right: 10px; /* 아이콘과 텍스트 간격 설정 */
       }
 
-      .todo-container {
-        display: flex;
-        flex-direction: column;
+      .deleteButton {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute; /* 절대 위치 설정 */
+        right: 30px; /* 오른쪽 여백 설정 */
+      }
+
+      .deleteButton::before {
+        content: "💣";
+        font-size: 20px;
+      }
+
+      /* 취소선 스타일 추가 */
+      .completed {
+        text-decoration: line-through;
+        color: #626262;
       }
     </style>
   </head>
   <body>
     <div id="root" class="todo-container">
-      <!-- todoList 만들기위해 먼저 해야할것 생각하기
-        우선 전체를 감싸는 박스가 필요함 
-        그리고 헤더 부분에 제목
-        input 란 옆에 버튼까지
-        그 아래는 목록들있어야 함  -->
-      <div class="header">오늘의 할일</div>
+      <div class="header">슈슈의 할일🩵</div>
       <div class="add">
         <input type="text" placeholder="할일을 입력하세요" />
         <button class="addBtn">+</button>
+      </div>
+      <div class="container">
+        <ul id="todoList"></ul>
       </div>
     </div>
     <script>
       const addText = document.querySelector("input");
       const addBtn = document.querySelector(".addBtn");
-      const ul = document.createElement("ul");
-      const checkbox = document.createElement("checkbox");
+      const ul = document.getElementById("todoList");
 
       addBtn.addEventListener("click", () => {
-        addText.addEventListener("keydown", (event) => {
-          event.key === "Enter";
-        });
-        const li = document.createElement("li");
-        li.textContent = addText.value;
-        ul.append(li);
-      });
+        if (addText.value.trim() !== "") {
+          const li = document.createElement("li");
 
-      root.append(ul);
+          // 체크박스 생성
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.className = "checkbox";
+
+          // 삭제버튼
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "deleteButton";
+
+          // 텍스트 추가
+          const todoText = document.createElement("span");
+          todoText.textContent = addText.value;
+
+          // li에 체크박스와 텍스트 추가
+          li.appendChild(checkbox);
+          li.appendChild(todoText);
+          li.appendChild(deleteButton);
+
+          // ul에 li 추가
+          ul.appendChild(li);
+
+          // 입력 필드 초기화
+          addText.value = "";
+
+          // 삭제 버튼 클릭 이벤트 추가
+          deleteButton.addEventListener("click", () => {
+            li.remove();
+          });
+
+          // 체크박스 클릭 이벤트 추가
+          checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+              todoText.classList.add("completed");
+            } else {
+              todoText.classList.remove("completed");
+            }
+          });
+        }
+      });
     </script>
   </body>
 </html>
-`

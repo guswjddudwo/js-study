@@ -62,19 +62,19 @@
         Object.assign(td.style, styles.column);
         Object.assign(div.style, styles.box);
 
-        const [apppendBtn, prependBtn] = [
+        const [appendBtn, prependBtn] = [
           document.createElement("button"),
           document.createElement("button"),
         ];
         const isLastColumn = index === headers.length - 1;
 
-        apppendBtn.textContent = "append";
+        appendBtn.textContent = "append";
         prependBtn.textContent = "prepend";
 
-        apppendBtn.addEventListener("click", appendRow);
+        appendBtn.addEventListener("click", appendRow);
         prependBtn.addEventListener("click", prependRow);
 
-        div.append(content, ...(isLastColumn ? [apppendBtn, prependBtn] : []));
+        div.append(content, ...(isLastColumn ? [appendBtn, prependBtn] : []));
         td.append(div);
 
         return td;
